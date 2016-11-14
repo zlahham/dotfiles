@@ -106,3 +106,4 @@ export NVM_DIR="/home/zlahham/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+homeshick --quiet refresh

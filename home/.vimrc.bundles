@@ -1,0 +1,55 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+  Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'                               " Git wrapper
+Plugin 'tpope/vim-endwise'                                " Ends methods in Ruby
+Plugin 'tpope/vim-eunuch'                                 " UNIX shell commands
+Plugin 'tpope/vim-rails'                                  " Rails support
+Plugin 'tpope/vim-unimpaired'                             " Complementary mapping pairs
+Plugin 'tpope/vim-surround'                               " Modify surroundings with cs
+Plugin 'tpope/vim-haml'                                   " Syntax highlighting for HAML
+Plugin 'morhetz/gruvbox'                                  " Colour scheme
+Plugin 'scrooloose/nerdtree'                              " File structure tree
+Plugin 'tComment'                                         " Commenting on lines
+Plugin 'thoughtbot/vim-rspec'                             " Runs RSpec within vim
+Plugin 'scrooloose/syntastic'                             " Syntax checker
+Plugin 'vim-ruby/vim-ruby'                                " Ruby support
+Plugin 'pangloss/vim-javascript'                          " JavaScript support
+Plugin 'elzr/vim-json'                                    " JSON support
+Plugin 'briancollins/vim-jst'                             " JST/EJS support
+Plugin 'jtratner/vim-flavored-markdown'                   " Highlighting for md snippets
+Plugin 'vim-scripts/matchit.zip'                          " Matches tags for HTML
+Plugin 'vim-airline/vim-airline'                          " Nice status bar
+Plugin 'vim-airline/vim-airline-themes'                   " Themes for airline
+Plugin 'Lokaltog/vim-easymotion'                          " Vimium-like motion ,,<move>
+Plugin 'ntpeters/vim-better-whitespace'                   " Tracks whitespace
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'                " Number toggling
+Plugin 'mattn/emmet-vim'                                  " Emmet support in vim
+Plugin 'SirVer/ultisnips'                                 " Tracks the snippets engine.
+Plugin 'honza/vim-snippets'                               " Snippets are separated from the engine
+Plugin 'Tabular'                                          " Line up text in a tabular format :Tab /=
+Plugin 'airblade/vim-gitgutter'                           " Show git diff on the right
+Plugin 'jiangmiao/auto-pairs'                             " Insert/delete {[( in pairs
+Plugin 'ervandew/supertab'                                " Insert mode completion
+Plugin 'craigemery/vim-autotag'                           " ctags support for vim
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+"Plugin 'takac/vim-hardtime'                               " Dont use hjkl more than once
+"Plugin 'Valloric/YouCompleteMe'                           " Autocompletion engine
+"Plugin 'scrooloose/nerdcommenter'                         " Commenting on lines
+"Plugin 'roman/golden-ratio'                               " Auto resizing of panes
+"Plugin 'vim-scripts/ctags.vim'
+"Plugin 'shime/vim-livedown'                               " Live markdown previewer
+"Plugin 'vim-scripts/vim-auto-save'                        " Autosave any change to buffer
+
+call vundle#end()
+filetype on
