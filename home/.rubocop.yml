@@ -1,0 +1,17 @@
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - 'Guardfile'
+    - 'Gemfile'
+    - 'schema.rb'
