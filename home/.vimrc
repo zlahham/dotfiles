@@ -59,7 +59,7 @@ set shiftwidth=2                                             " Reindent with 2 s
 set list                                                     " Show invisible chars
 set listchars=""                                             " Reset listchars
 set list listchars=tab:»·,trail:·                            " Set listchars for tabs and trailing spaces
-set clipboard=unnamedplus                                    " Ubuntu Clipboard sharing
+set clipboard=unnamedplus                                    " Ubuntu Clipboard sharing, also run `sudo apt-get install vim-gtk`
 set splitbelow                                               " Split panes to below
 set splitright                                               " Split panes to right
 set hlsearch
