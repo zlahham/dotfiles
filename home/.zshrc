@@ -10,7 +10,7 @@ fi
 
 ZSH_THEME="steeef"
 
-plugins=(apt git npm rails rbenv tmux zsh-syntax-highlighting)
+plugins=(apt git npm rails rbenv zsh-syntax-highlighting)
 
 
 #initialize Z (https://github.com/rupa/z)
