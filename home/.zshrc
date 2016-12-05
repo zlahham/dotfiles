@@ -8,7 +8,8 @@ else
   export EDITOR='vim'
 fi
 
-ZSH_THEME="steeef"
+# I also like steeef, ys
+ZSH_THEME="ys"
 
 plugins=(apt git npm rails rbenv zsh-syntax-highlighting)
 
