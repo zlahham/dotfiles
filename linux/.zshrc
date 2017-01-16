@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export TERM='xterm-256color'
-export ZSH=/home/zlahham/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -89,15 +89,10 @@ source ~/.env
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-
-# Android Studio paths
-export PATH="$PATH:/home/zlahham/Android/Sdk/tools"
-export PATH="$PATH:/home/zlahham/Android/Sdk/platform-tools"
 
 alias ll='ls -lAFh'                         # Long ls implementation
 
@@ -105,6 +100,3 @@ setopt nosharehistory
 
 export NVM_DIR="/home/zlahham/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-homeshick --quiet refresh

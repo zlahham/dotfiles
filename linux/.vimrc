@@ -66,7 +66,6 @@ set hlsearch
 set incsearch
 set statusline=%<%f\ %h%m%r%=\ %-14.(%l,%c%V%)\ %P%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 hi CursorColumn cterm=NONE ctermbg=black                     " Set a vertical bar for the cursor
 set cursorcolumn
@@ -164,6 +163,7 @@ let g:UltiSnipsEditSplit           = "vertical"
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+let g:UltiSnipsUsePythonVersion    = 3
 
 " ---------------------
 " Personal Mappings
