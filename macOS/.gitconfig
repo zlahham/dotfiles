@@ -1,0 +1,29 @@
+[user]
+  email = zlahham@gmail.com
+  name = Zaid Al Lahham
+[github]
+  user = zlahham
+[filter "lfs"]
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
+[core]
+  autocrlf = false
+  safecrlf = true
+  editor = vim
+  excludesfile = ~/.gitignore_global
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+[push]
+  default = simple
+[credential]
+  helper = osxkeychain
+[format]
+  pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+  graph = true
