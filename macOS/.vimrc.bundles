@@ -25,7 +25,6 @@ Plugin 'scrooloose/syntastic'                             " Syntax checker
 Plugin 'vim-ruby/vim-ruby'                                " Ruby support
 Plugin 'pangloss/vim-javascript'                          " JavaScript support
 Plugin 'elzr/vim-json'                                    " JSON support
-Plugin 'briancollins/vim-jst'                             " JST/EJS support
 Plugin 'jtratner/vim-flavored-markdown'                   " Highlighting for md snippets
 Plugin 'vim-scripts/matchit.zip'                          " Matches tags for HTML
 Plugin 'vim-airline/vim-airline'                          " Nice status bar
