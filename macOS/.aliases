@@ -1,0 +1,21 @@
+alias ls='ls -GFh'
+alias ll='ls -lAFh'                         # Long ls implementation
+alias less='less -FSRXc'                    # Preferred 'less' implementation
+cd() { builtin cd "$@"; ls; }               # Always list directory contents upon 'cd'
+mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
+alias ..='cd ../'                           # Go back 1 directory levels
+alias .2='cd ../../'                        # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+alias path='echo -e ${PATH//:/\\n}'         # path: Echo all executable Paths
+alias fix_stty='stty sane'                  # fix_stty: Restore terminal settings when screwed up
+alias tree_less='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # This is similar to tree
+alias zshconfig="vim ~/.zshrc"
+alias sourcezsh="source ~/.zshrc"
+alias vimconfig="vim ~/.vimrc"
+alias sourcevim="source ~/.vimrc"
