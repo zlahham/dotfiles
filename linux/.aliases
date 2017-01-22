@@ -1,5 +1,5 @@
-alias ls='ls -GFh'
-alias ll='ls -lAFh'                         # Long ls implementation
+alias ls='ls -GFh --color=auto'
+alias ll='ls -lAFh --color=auto'            # Long ls implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 cd() { builtin cd "$@"; ls; }               # Always list directory contents upon 'cd'
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
