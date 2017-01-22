@@ -113,64 +113,13 @@ if !exists(":DiffOrig")
 endif
 
 " ---------------------------------------------------------------------
-"                              Options
+"                            Plugin Options
 " ---------------------------------------------------------------------
 
-let mapleader = ","
-let g:mapleader = ","
-let base16colorspace=256
-
-" Airline
-let g:airline_theme                      = 'wombat' " base16_pop, base16_summerfruit, simple
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts            = 1
-
-" NERDTree
-let NERDTreeQuitOnOpen          = 1
-let NERDChristmasTree           = 1
-let NERDTreeHighlightCursorline = 1
-let NERDTreeShowHidden          = 1
-
-" rails.vim
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-
-" Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+" Call on custom plugin options from an external file
+if filereadable(expand("~/.vimrc.options"))
+  source ~/.vimrc.options
 endif
-
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list            = 1
-let g:syntastic_check_on_open            = 1
-let g:syntastic_check_on_wq              = 0
-let g:syntastic_javascript_checkers      = ['jshint']
-let g:syntastic_html_checkers            = ['jshint']
-let g:syntastic_ruby_checkers            = ['rubocop']
-let g:syntastic_html_tidy_ignore_errors  = [
-      \  '<html> attribute "lang" lacks value',
-      \  '<a> attribute "href" lacks value',
-      \  'trimming empty <span>',
-      \  'trimming empty <h1>',
-      \  'trimming empty <p>',
-      \  'inserting implicit <p>'
-      \ ]
-
-" Ultisnips
-let g:UltiSnipsEditSplit           = "vertical"
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-let g:UltiSnipsUsePythonVersion    = 3
 
 " ---------------------------------------------------------------------
 "                              Mappings
