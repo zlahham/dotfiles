@@ -16,6 +16,10 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-w>l
 
+" Exit insert mode
+imap jk <esc>
+imap kj <esc>
+
 " Nerdtree
 map <F2> :NERDTreeToggle<CR>
 map <Tab> :NERDTreeFind<CR>
