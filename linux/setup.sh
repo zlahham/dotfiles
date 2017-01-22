@@ -19,6 +19,7 @@ ln -s -f ~/workspace/dotfiles/linux/.rubocop.yml ~/.rubocop.yml
 ln -s -f ~/workspace/dotfiles/linux/.tmux.conf ~/.tmux.conf
 ln -s -f ~/workspace/dotfiles/linux/.vimrc ~/.vimrc
 ln -s -f ~/workspace/dotfiles/linux/.vimrc.bundles ~/.vimrc.bundles
+ln -s -f ~/workspace/dotfiles/linux/.vimrc.mappings ~/.vimrc.mappings
 ln -s -f ~/workspace/dotfiles/linux/.zshrc ~/.zshrc
 
 echo

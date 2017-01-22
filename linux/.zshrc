@@ -9,7 +9,7 @@ else
 fi
 
 # I also like steeef, ys
-ZSH_THEME="ys"
+ZSH_THEME="steeef"
 
 plugins=(apt git npm rails rbenv zsh-syntax-highlighting)
 
