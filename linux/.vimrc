@@ -169,6 +169,9 @@ let g:UltiSnipsUsePythonVersion    = 3
 " Personal Mappings
 " ----------------------
 
+" CtrlP + Ctags
+nnoremap <leader>. :CtrlPTag<cr>
+
 " Easier movements between splits
 map <C-h> <C-W>h
 map <C-j> <C-W>j
@@ -179,14 +182,6 @@ map <C-l> <C-w>l
 map <F2> :NERDTreeToggle<CR>
 map <Tab> :NERDTreeFind<CR>
 
-" Tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<ENTER>
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-nnoremap <space> gt
-
 " RSpec
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -196,14 +191,14 @@ map <Leader>a :call RunAllSpecs()<CR>
 " Silver Searcher
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+" Tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove<ENTER>
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+nnoremap <Space> gt
+
 " tComment
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
-
-" CtrlP + Ctags
-nnoremap <leader>. :CtrlPTag<cr>
-
-" ---------------------
-" Abbreviations
-" ----------------------
-
