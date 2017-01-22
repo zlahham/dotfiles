@@ -1,8 +1,11 @@
 # My dotfile collection
-Dotfiles and configuration for my work and home machines.
+Dotfiles and configuration for my Linux and macOS machines.
 
-I use (homeshick)[https://github.com/andsens/homeshick] to organise and sync all the dotfiles between the machines. You can also use (homesick)[https://github.com/technicalpickles/homesick] which is written in Ruby. Homeshick is just easier to set up for new machines as it is written in bash.
+In order to get started and to configure these dotfiles to your machines I have written a shell script that makes setting up so much easier.
+This script is currently only available for Linux! The macOS one will be available soon.
 
-Most of my `.vimrc` was inspired from other people, but they are far too many to list them all here. So a silent thank you to all of them.
+I stopped using [homeshick](https://github.com/andsens/homeshick) to organise and sync all the dotfiles between the machines because I felt I had little control over what I actually want from syncing my dotfiles.
+
+Most of my `.vimrc` was inspired from other people, they are far too many to list them all here. So a silent thank you to all of them.
 
 Hope this helps anyone!
