@@ -1,5 +1,13 @@
 #!/bin/bash
 
+for i in git vim tmux zsh exuberant-ctags build-essential libssl-dev libreadline-dev zlib1g-dev postgresql postgresql-contrib silversearcher-ag; do
+  if [ $(dpkg-query -W -f='${Status}' $i 2>/dev/null | grep -c "ok installed") -eq 0 ];
+  then
+    sudo apt-get update;
+    sudo apt-get install $i;
+  fi
+done
+
 echo "Symlinking your dotfiles to your home directory..."
 ln -s -f ~/workspace/dotfiles/linux/.aliases ~/.aliases
 ln -s -f ~/workspace/dotfiles/linux/.ctags ~/.ctags
@@ -72,5 +80,29 @@ then
   echo "Adding Droid Sans Mono for powerline to your fonts..."
   sudo cp ~/workspace/dotfiles/Droid_Sans_Mono_for_Powerline.otf /usr/share/fonts/Droid_Sans_Mono_for_Powerline.otf
   echo "Please restart your terminal and select this font from the preferences of your favourite Terminal"
+  echo
+fi
+
+
+if ! [ -d ~/.rbenv ]
+then
+  echo "Downloading rbenv..."
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  echo "Download complete!"
+  echo
+
+  echo "Please restart your terminal"
+  echo
+fi
+
+if ! [ -d ~/.tmux/plugins/tpm ]
+then
+  echo "Downloading tpm..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  echo "Download complete!"
+  echo
+
+  echo "Please restart your terminal"
   echo
 fi
