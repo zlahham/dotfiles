@@ -4,6 +4,9 @@ end
 
 filetype off
 
+" Access first character in line
+nmap 0 ^
+
 " CtrlP + Ctags
 nnoremap <leader>. :CtrlPTag<cr>
 
