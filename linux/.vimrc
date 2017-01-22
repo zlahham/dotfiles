@@ -11,6 +11,10 @@ set nocompatible                                             " vim not vi
 set encoding=utf-8
 set spelllang=en_gb
 
+" ---------------------------------------------------------------------
+"                                Vundle
+" ---------------------------------------------------------------------
+
 " Call on Vundle packages from an external file
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -34,13 +38,27 @@ if has('mouse')
   set mouse=a
 endif
 
-" Appearance and colours
+" ---------------------------------------------------------------------
+"                           Appearance & Colour
+" ---------------------------------------------------------------------
+
 colorscheme gruvbox                                          " Favourites: gruvbox, sourcerer, hybrid
 set background=dark
 set t_Co=256
 set term=screen-256color
 
-" My vim settings
+set cursorcolumn                                             " Highlight current cursor column
+set cursorline                                               " Highlight current cursor line
+hi CursorColumn cterm=NONE ctermbg=black                     " Set a vertical bar for the cursor
+
+set hlsearch                                                 " Allow highlighting of search results
+set incsearch
+hi Search ctermfg=green ctermbg=NONE cterm=underline         " Search results are coloured and underlined
+
+" ---------------------------------------------------------------------
+"                              vim Settings
+" ---------------------------------------------------------------------
+
 set shell=$SHELL                                             " Default shell is ZSH
 set noswapfile                                               " Don't create .swp files
 set nobackup                                                 " Don't create <file>~ backup files
@@ -69,16 +87,7 @@ set splitright                                               " Split panes to ri
 set statusline=%<%f\ %h%m%r%=\ %-14.(%l,%c%V%)\ %P%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
-set cursorcolumn                                             " Highlight current cursor column
-set cursorline                                               " Highlight current cursor line
-hi CursorColumn cterm=NONE ctermbg=black                     " Set a vertical bar for the cursor
-
-set hlsearch                                                 " Allow highlighting of search results
-set incsearch
-hi Search ctermfg=green ctermbg=NONE cterm=underline         " Search results are coloured and underlined
-
 filetype plugin indent on
-
 augroup vimrcEx
   autocmd!
 
@@ -103,14 +112,6 @@ augroup vimrcEx
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
 augroup END
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-        \ | wincmd p | diffthis
-endif
 
 " ---------------------------------------------------------------------
 "                            Plugin Options
