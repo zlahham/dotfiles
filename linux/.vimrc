@@ -1,6 +1,11 @@
-" =======================
-" Zaid's Config
-" =======================
+" =====================================================================
+"                              Zaid's vimrc
+" =====================================================================
+
+" Author: Zaid Al Lahham [http://zaidlahham.me]
+" Source: https://github.com/zlahham/dotfiles
+
+" ---------------------------------------------------------------------
 
 set nocompatible                                             " vim not vi
 set encoding=utf-8
@@ -51,7 +56,6 @@ set relativenumber                                           " Show relative lin
 set showcmd                                                  " Display incomplete commands
 set ignorecase                                               " Ignore case if search pattern is all lowercase, case-sensitive otherwise
 set smartcase
-set cursorline                                               " Highlight current cursor line
 set backspace=2                                              " Backspace deletes like most programs in insert mode
 set tabstop=2                                                " Tabs are always 2 spaces
 set expandtab                                                " Expand tabs into spaces
@@ -62,13 +66,16 @@ set list listchars=tab:»·,trail:·                            " Set listchars 
 set clipboard=unnamedplus                                    " Ubuntu Clipboard sharing, also run `sudo apt-get install vim-gtk`
 set splitbelow                                               " Split panes to below
 set splitright                                               " Split panes to right
-set hlsearch
-set incsearch
 set statusline=%<%f\ %h%m%r%=\ %-14.(%l,%c%V%)\ %P%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
+set cursorcolumn                                             " Highlight current cursor column
+set cursorline                                               " Highlight current cursor line
 hi CursorColumn cterm=NONE ctermbg=black                     " Set a vertical bar for the cursor
-set cursorcolumn
+
+set hlsearch                                                 " Allow highlighting of search results
+set incsearch
+hi Search ctermfg=green ctermbg=NONE cterm=underline         " Search results are coloured and underlined
 
 filetype plugin indent on
 
@@ -105,9 +112,9 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
-" ---------------------
-" Custom Options
-" ----------------------
+" ---------------------------------------------------------------------
+"                              Options
+" ---------------------------------------------------------------------
 
 let mapleader = ","
 let g:mapleader = ","
@@ -165,11 +172,11 @@ let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:UltiSnipsUsePythonVersion    = 3
 
-" ---------------------
-" Personal Mappings
-" ----------------------
+" ---------------------------------------------------------------------
+"                              Mappings
+" ---------------------------------------------------------------------
 
-" Call on Vundle packages from an external file
+" Call on mappings from an external file
 if filereadable(expand("~/.vimrc.mappings"))
   source ~/.vimrc.mappings
 endif
