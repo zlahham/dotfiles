@@ -9,3 +9,23 @@ I stopped using [homeshick](https://github.com/andsens/homeshick) to organise an
 Most of my `.vimrc` was inspired from other people, they are far too many to list them all here. So a silent thank you to all of them.
 
 Hope this helps anyone!
+
+```
+  .
+  ├── .aliases
+  ├── .ctags
+  ├── .gemrc
+  ├── .gitconfig
+  ├── .gitignore_global
+  ├── .pryrc
+  ├── .rubocop.yml
+  ├── .tmux.conf
+  ├── vim
+  │   └── .vimrc
+  │       ├── .vimrc.bundles
+  │       ├── .vimrc.commands
+  │       ├── .vimrc.mappings
+  │       └── .vimrc.options
+  └── .zshrc
+
+```
