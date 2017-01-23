@@ -7,6 +7,9 @@ filetype off
 " Access first character in line
 nmap 0 ^
 
+" Copy whole file
+map <Leader> cf ggVG"*y
+
 " CtrlP + Ctags
 nnoremap <leader>. :CtrlPTag<cr>
 
@@ -19,6 +22,10 @@ map <C-l> <C-w>l
 " Exit insert mode
 imap jk <esc>
 imap kj <esc>
+
+" Movement up and down virtual lines (wrapped lines)
+nmap j gj
+nmap k gk
 
 " Nerdtree
 map <F2> :NERDTreeToggle<CR>
