@@ -1,0 +1,13 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off
+
+command! E e
+command! Noh noh
+command! Q q
+command! Qa qall
+command! Wqa wqall
+
+filetype on
