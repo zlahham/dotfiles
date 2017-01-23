@@ -6,7 +6,7 @@ This script is currently only available for Linux! The macOS one will be availab
 
 I stopped using [homeshick](https://github.com/andsens/homeshick) to organise and sync all the dotfiles between the machines because I felt I had little control over what I actually want from syncing my dotfiles.
 
-Most of my `.vimrc` was inspired from other people, they are far too many to list them all here. So a silent thank you to all of them.
+Most of my `.vimrc` was copied from other people, they are far too many to list them all here - so a silent thank you to all of them.
 
 Hope this helps anyone!
 
