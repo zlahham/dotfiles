@@ -40,6 +40,9 @@ map <Leader>a :call RunAllSpecs()<CR>
 " Silver Searcher
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+" Search for # of occurances
+map ,# #<C-O>:%s///gn<CR>
+
 " Tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
