@@ -15,6 +15,7 @@ ln -s -f ~/workspace/dotfiles/linux/.gemrc ~/.gemrc
 ln -s -f ~/workspace/dotfiles/linux/.gitconfig ~/.gitconfig
 ln -s -f ~/workspace/dotfiles/linux/.gitignore_global ~/.gitignore_global
 ln -s -f ~/workspace/dotfiles/linux/.pryrc ~/.pryrc
+ln -s -f ~/workspace/dotfiles/linux/.rspec ~/.rspec
 ln -s -f ~/workspace/dotfiles/linux/.rubocop.yml ~/.rubocop.yml
 ln -s -f ~/workspace/dotfiles/linux/.tmux.conf ~/.tmux.conf
 ln -s -f ~/workspace/dotfiles/linux/.vimrc ~/.vimrc
