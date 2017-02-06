@@ -1,24 +1,24 @@
-[color]
-  ui = true
-[user]
-  name = Zaid Al Lahham
-  email = zlahham@gmail.com
 [alias]
-  st = status
-  br = branch
   hist = log --graph --pretty=format: '%h %ad | %s%d [%an]' --date=short
   gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
-[filter "lfs"]
-  clean = git lfs clean %f
-  smudge = git lfs smudge %f
-  required = true
+[color]
+  ui = true
 [core]
   autocrlf = false
   safecrlf = true
   editor = vim
   excludesfile = ~/.gitignore_global
-[push]
-  default = simple
+[filter "lfs"]
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
 [format]
   pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
   graph = true
+[github]
+  user = zlahham
+[push]
+  default = simple
+[user]
+  email = zlahham@gmail.com
+  name = Zaid Al Lahham

@@ -8,3 +8,10 @@
 ehthumbs.db
 Thumbs.db
 tags
+
+# Bybug
+.byebug_history
+
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]

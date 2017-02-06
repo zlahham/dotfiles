@@ -93,4 +93,6 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 alias ll='ls -lAFh'                         # Long ls implementation
 
+# Do not share history between tmux windows
+setopt noincappendhistory
 setopt nosharehistory

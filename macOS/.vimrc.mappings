@@ -1,0 +1,58 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off
+
+" Access first character in line
+nmap 0 ^
+
+" Copy whole file
+map <Leader> cf ggVG"*y
+
+" CtrlP + Ctags
+nnoremap <leader>. :CtrlPTag<cr>
+
+" Easier movements between splits
+map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-w>l
+
+" Exit insert mode
+imap jk <esc>
+imap kj <esc>
+
+" Movement up and down virtual lines (wrapped lines)
+nmap j gj
+nmap k gk
+
+" Nerdtree
+map <F2> :NERDTreeToggle<CR>
+map <Tab> :NERDTreeFind<CR>
+
+" RSpec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" Silver Searcher
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Search for # of occurances
+map ,# #<C-O>:%s///gn<CR>
+
+" Tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove<ENTER>
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+nnoremap <Space> gt
+
+" tComment
+nnoremap // :TComment<CR>
+vnoremap // :TComment<CR>
+
+filetype on
