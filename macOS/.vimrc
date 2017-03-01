@@ -67,7 +67,9 @@ set shiftwidth=2                                             " Reindent with 2 s
 set list                                                     " Show invisible chars
 set listchars=""                                             " Reset listchars
 set list listchars=tab:»·,trail:·                            " Set listchars for tabs and trailing spaces
-set clipboard=unnamed                                        " Mac OS X Clipboard sharing
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 set splitbelow                                               " Split panes to below
 set splitright                                               " Split panes to right
 set statusline=%<%f\ %h%m%r%=\ %-14.(%l,%c%V%)\ %P%#warningmsg#%{SyntasticStatuslineFlag()}%*
