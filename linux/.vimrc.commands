@@ -9,5 +9,6 @@ command! Noh noh
 command! Q q
 command! Qa qall
 command! Wqa wqall
+command! W w
 
 filetype on
