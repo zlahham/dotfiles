@@ -9,6 +9,14 @@ Metrics/ClassLength:
 Metrics/LineLength:
    Enabled: false
 
+# This is because most Describe blocks will go over the limit
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
