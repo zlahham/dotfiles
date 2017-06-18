@@ -96,3 +96,11 @@ alias ll='ls -lAFh'                         # Long ls implementation
 # Do not share history between tmux windows
 setopt noincappendhistory
 setopt nosharehistory
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Elixir path
+export PATH="$PATH:/usr/local/bin/elixir"
+

@@ -26,6 +26,9 @@ Plugin 'ervandew/supertab'                                " Insert mode completi
 Plugin 'honza/vim-snippets'                               " Snippets are separated from the engine
 Plugin 'SirVer/ultisnips'                                 " Tracks the snippets engine.
 
+" Elixir
+Plugin 'elixir-lang/vim-elixir'                           " Elixir support
+
 " Functionality
 Plugin 'jiangmiao/auto-pairs'                             " Insert/delete {[( in pairs
 Plugin 'vim-scripts/tComment'                             " Commenting on lines
@@ -41,9 +44,11 @@ Plugin 'vim-scripts/matchit.zip'                          " Matches tags for HTM
 Plugin 'mattn/emmet-vim'                                  " Emmet support in vim
 
 " JavaScript
-Plugin 'pangloss/vim-javascript'                          " JavaScript support
-Plugin 'elzr/vim-json'                                    " JSON support
 Plugin 'briancollins/vim-jst'                             " JST/EJS support
+Plugin 'elzr/vim-json'                                    " JSON support
+Plugin 'leafgarland/typescript-vim'                       " TypeScript support
+Plugin 'pangloss/vim-javascript'                          " JavaScript support
+
 
 " Movement
 Plugin 'Lokaltog/vim-easymotion'                          " Vimium-like motion ,,<move>
