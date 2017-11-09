@@ -51,6 +51,9 @@ map <leader>tm :tabmove<ENTER>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 nnoremap <Space> gt
 
+" Symbolize I18n Transaltions
+map <leader>11 :%s/t(['"]\(\w\+\)['"])/t(:\1)/gc<CR>
+
 " tComment
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>

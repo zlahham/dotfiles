@@ -46,6 +46,7 @@ let g:syntastic_check_on_wq              = 0
 let g:syntastic_javascript_checkers      = ['jshint']
 let g:syntastic_html_checkers            = ['jshint']
 let g:syntastic_ruby_checkers            = ['rubocop']
+let g:syntastic_haml_checkers            = ['haml_lint']
 let g:syntastic_html_tidy_ignore_errors  = [
       \  '<html> attribute "lang" lacks value',
       \  '<a> attribute "href" lacks value',

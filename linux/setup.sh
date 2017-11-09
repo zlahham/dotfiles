@@ -14,6 +14,7 @@ ln -s -f ~/workspace/dotfiles/linux/.ctags ~/.ctags
 ln -s -f ~/workspace/dotfiles/linux/.gemrc ~/.gemrc
 ln -s -f ~/workspace/dotfiles/linux/.gitconfig ~/.gitconfig
 ln -s -f ~/workspace/dotfiles/linux/.gitignore_global ~/.gitignore_global
+ln -s -f ~/workspace/dotfiles/linux/.haml-lint.yml ~/.haml-lint.yml
 ln -s -f ~/workspace/dotfiles/linux/.pryrc ~/.pryrc
 ln -s -f ~/workspace/dotfiles/linux/.rspec ~/.rspec
 ln -s -f ~/workspace/dotfiles/linux/.rubocop.yml ~/.rubocop.yml
