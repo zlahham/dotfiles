@@ -47,6 +47,8 @@ let g:syntastic_javascript_checkers      = ['jshint']
 let g:syntastic_html_checkers            = ['jshint']
 let g:syntastic_ruby_checkers            = ['rubocop']
 let g:syntastic_haml_checkers            = ['haml_lint']
+let g:syntastic_scss_checkers            = [ 'sass_lint' ] " npm install -g sass-lint
+let g:syntastic_sass_sass_args           = '-I ' . getcwd()
 let g:syntastic_html_tidy_ignore_errors  = [
       \  '<html> attribute "lang" lacks value',
       \  '<a> attribute "href" lacks value',

@@ -2,12 +2,14 @@ Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
 Metrics/AbcSize:
-   Enabled: false
+  Enabled: false
 Metrics/ClassLength:
-   Enabled: false
+  Enabled: false
 Metrics/LineLength:
-   Enabled: false
+  Enabled: false
 
 # This is because most Describe blocks will go over the limit
 Metrics/ModuleLength:
