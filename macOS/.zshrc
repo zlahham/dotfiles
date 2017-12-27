@@ -11,7 +11,7 @@ fi
 . `brew --prefix`/etc/profile.d/z.sh
 
 # I like: 'dst', 'ys', 'steeef'
-ZSH_THEME="steeef"
+ZSH_THEME="spaceship"
 
 plugins=(brew git npm rails tmux zsh-syntax-highlighting z)
 
@@ -81,4 +81,16 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 setopt noincappendhistory
 setopt nosharehistory
 
+# iterm2 key bindings for:
+# ⌥ + ← or → - move one word backward/forward
+# ⌘ + ← or → - move to beginning/end of line
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
+
 eval "$(rbenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
