@@ -30,9 +30,9 @@ echo
 echo "Symlinking complete!"
 echo
 
-if [ -f ~/.oh-my-zsh/themes/steeef.zsh-theme ]
+if [ -f ~/.oh-my-zsh/custom/themes/steeef.zsh-theme ]
 then
-  ln -s -f ~/workspace/dotfiles/macOS/steeef.zsh-theme ~/.oh-my-zsh/themes/steeef.zsh-theme
+  ln -s -f ~/workspace/dotfiles/macOS/steeef.zsh-theme ~/.oh-my-zsh/custom/themes/steeef.zsh-theme
   echo "Your zsh theme has been changed to steeef"
   echo
 else
