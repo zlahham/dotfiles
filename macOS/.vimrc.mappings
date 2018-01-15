@@ -28,8 +28,8 @@ nmap j gj
 nmap k gk
 
 " Nerdtree
-map <F2> :NERDTreeToggle<CR>
-map <Tab> :NERDTreeFind<CR>
+map <Tab> :NERDTreeToggle<CR>
+map <F2> :NERDTreeFind<CR>
 
 " RSpec
 map <Leader>t :call RunCurrentSpecFile()<CR>
