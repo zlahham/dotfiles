@@ -10,54 +10,55 @@ call vundle#begin()
   Plugin 'gmarik/Vundle.vim'
 
 " Aesthetics
-Plugin 'morhetz/gruvbox'                                  " Colour scheme
-Plugin 'vim-scripts/Tabular'                              " Line up text in a tabular format :Tab /=
-Plugin 'scrooloose/syntastic'                             " Syntax checker
-Plugin 'jtratner/vim-flavored-markdown'                   " Highlighting for Markdown snippets
-Plugin 'ntpeters/vim-better-whitespace'                   " Tracks whitespace
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'                " Number toggling
-Plugin 'scrooloose/nerdtree'                              " File structure tree
-Plugin 'vim-airline/vim-airline'                          " Nice status bar
-Plugin 'vim-airline/vim-airline-themes'                   " Themes for airline
+Plugin 'morhetz/gruvbox'                       " Colour scheme
+Plugin 'vim-scripts/Tabular'                   " Line up text in a tabular format :Tab /=
+Plugin 'scrooloose/syntastic'                  " Syntax checker
+Plugin 'jtratner/vim-flavored-markdown'        " Highlighting for Markdown snippets
+Plugin 'mzlogin/vim-markdown-toc'              " Generate ToC for READMEs :GenTocGFM
+Plugin 'ntpeters/vim-better-whitespace'        " Tracks whitespace
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'     " Number toggling
+Plugin 'scrooloose/nerdtree'                   " File structure tree
+Plugin 'vim-airline/vim-airline'               " Nice status bar
+Plugin 'vim-airline/vim-airline-themes'        " Themes for airline
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Completion & Snippets
-Plugin 'ervandew/supertab'                                " Insert mode completion
-Plugin 'honza/vim-snippets'                               " Snippets are separated from the engine
-Plugin 'SirVer/ultisnips'                                 " Tracks the snippets engine.
+Plugin 'ervandew/supertab'                     " Insert mode completion
+Plugin 'honza/vim-snippets'                    " Snippets are separated from the engine
+Plugin 'SirVer/ultisnips'                      " Tracks the snippets engine.
 
 " Functionality
-Plugin 'jiangmiao/auto-pairs'                             " Insert/delete {[( in pairs
-Plugin 'vim-scripts/tComment'                             " Commenting on lines
-Plugin 'tpope/vim-surround'                               " Modify surroundings with cs
-Plugin 'tpope/vim-unimpaired'                             " Complementary mapping pairs
+Plugin 'jiangmiao/auto-pairs'                  " Insert/delete {[( in pairs
+Plugin 'vim-scripts/tComment'                  " Commenting on lines
+Plugin 'tpope/vim-surround'                    " Modify surroundings with cs
+Plugin 'tpope/vim-unimpaired'                  " Complementary mapping pairs
 
 " Git
-Plugin 'tpope/vim-fugitive'                               " Git wrapper
-Plugin 'airblade/vim-gitgutter'                           " Show git diff on the right
+Plugin 'tpope/vim-fugitive'                    " Git wrapper
+Plugin 'airblade/vim-gitgutter'                " Show git diff on the right
 
 " HTML & CSS
-Plugin 'vim-scripts/matchit.zip'                          " Matches tags for HTML
-Plugin 'mattn/emmet-vim'                                  " Emmet support in vim
+Plugin 'vim-scripts/matchit.zip'               " Matches tags for HTML
+Plugin 'mattn/emmet-vim'                       " Emmet support in vim
 
 " JavaScript
-Plugin 'pangloss/vim-javascript'                          " JavaScript support
-Plugin 'elzr/vim-json'                                    " JSON support
-" Plugin 'briancollins/vim-jst'                             " JST/EJS support
+Plugin 'pangloss/vim-javascript'               " JavaScript support
+Plugin 'elzr/vim-json'                         " JSON support
+" Plugin 'briancollins/vim-jst'                  " JST/EJS support
 
 " Movement
-Plugin 'Lokaltog/vim-easymotion'                          " Vimium-like motion ,,<move>
+Plugin 'Lokaltog/vim-easymotion'               " Vimium-like motion ,,<move>
 
 " Ruby/Rails
-Plugin 'tpope/vim-endwise'                                " Ends methods in Ruby
-Plugin 'tpope/vim-haml'                                   " Syntax highlighting for HAML
-Plugin 'tpope/vim-rails'                                  " Rails support
-Plugin 'vim-ruby/vim-ruby'                                " Ruby support
-Plugin 'thoughtbot/vim-rspec'                             " Runs RSpec within vim
+Plugin 'tpope/vim-endwise'                     " Ends methods in Ruby
+Plugin 'tpope/vim-haml'                        " Syntax highlighting for HAML
+Plugin 'tpope/vim-rails'                       " Rails support
+Plugin 'vim-ruby/vim-ruby'                     " Ruby support
+Plugin 'thoughtbot/vim-rspec'                  " Runs RSpec within vim
 
 " Searching
-Plugin 'craigemery/vim-autotag'                           " ctags support for vim
-Plugin 'ctrlpvim/ctrlp.vim'                               " Fuzzy searching in Vim
+Plugin 'craigemery/vim-autotag'                " ctags support for vim
+Plugin 'ctrlpvim/ctrlp.vim'                    " Fuzzy searching in Vim
 
 call vundle#end()
 filetype on
