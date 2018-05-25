@@ -27,9 +27,12 @@ imap kj <esc>
 nmap j gj
 nmap k gk
 
+" Toggle relative line number
+nmap <C-n> :set rnu<CR>
+nmap <C-n> :set rnu!<CR>
+
 " Nerdtree
-map <F2> :NERDTreeToggle<CR>
-map <Tab> :NERDTreeFind<CR>
+map <Tab> :NERDTreeToggle<CR>
 
 " RSpec
 map <Leader>t :call RunCurrentSpecFile()<CR>

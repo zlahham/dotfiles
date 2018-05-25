@@ -15,9 +15,14 @@ alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias path='echo -e ${PATH//:/\\n}'         # path: Echo all executable Paths
 alias fix_stty='stty sane'                  # fix_stty: Restore terminal settings when screwed up
 alias tree_less='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # This is similar to tree
+
 alias zshconfig="vim ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias sourcevim="source ~/.vimrc"
+
 alias pg_start="pg_ctl -D /usr/local/var/postgres start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
+
+alias mira="rlwrap mira"
+alias phpmamp='/Applications/MAMP/bin/php/php7.1.12/bin/php'

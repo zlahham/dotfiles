@@ -13,7 +13,7 @@ fi
 # I like: 'dst', 'ys', 'steeef'
 ZSH_THEME="spaceship"
 
-plugins=(brew git npm rails tmux zsh-syntax-highlighting z)
+plugins=(brew git npm rails tmux zsh-syntax-highlighting z zsh-iterm-touchbar)
 
 source $ZSH/oh-my-zsh.sh
 # ------------------------------------------------------------
