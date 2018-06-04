@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for pkg in git vim tmux zsh; do
+for pkg in git vim tmux zsh wget reattach-to-user-namespace; do
   if brew list -1 | grep -q "^${pkg}\$"; then
     echo "Package '$pkg' is installed"
   else
@@ -80,13 +80,13 @@ then
   echo
 fi
 
-# if ! [ -f /usr/share/fonts/Droid_Sans_Mono_for_Powerline.otf ]
-# then
-#   echo "Adding Droid Sans Mono for powerline to your fonts..."
-#   sudo cp ~/workspace/dotfiles/Droid_Sans_Mono_for_Powerline.otf /usr/share/fonts/Droid_Sans_Mono_for_Powerline.otf
-#   echo "Please restart your terminal and select this font from the preferences of your favourite Terminal"
-#   echo
-# fi
+if ! [ -f /usr/share/fonts/Droid_Sans_Mono_for_Powerline.otf ]
+then
+  echo "Adding Droid Sans Mono for powerline to your fonts..."
+  sudo cp ~/workspace/dotfiles/Droid_Sans_Mono_for_Powerline.otf /usr/share/fonts/Droid_Sans_Mono_for_Powerline.otf
+  echo "Please restart your terminal and select this font from the preferences of your favourite Terminal"
+  echo
+fi
 
 if ! [ -d ~/.rbenv ]
 then
