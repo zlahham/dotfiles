@@ -42,6 +42,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 " Silver Searcher
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap \ :Ag<SPACE>
 
 " Search for # of occurances
 map ,# #<C-O>:%s///gn<CR>
