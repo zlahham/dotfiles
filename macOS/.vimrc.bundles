@@ -13,8 +13,8 @@ call vundle#begin()
 Plugin 'morhetz/gruvbox'                       " Colour scheme
 Plugin 'vim-scripts/Tabular'                   " Line up text in a tabular format :Tab /=
 Plugin 'scrooloose/syntastic'                  " Syntax checker
-Plugin 'jtratner/vim-flavored-markdown'        " Highlighting for Markdown snippets
-Plugin 'mzlogin/vim-markdown-toc'              " Generate ToC for READMEs :GenTocGFM
+"Plugin 'jtratner/vim-flavored-markdown'        " Highlighting for Markdown snippets
+"Plugin 'mzlogin/vim-markdown-toc'              " Generate ToC for READMEs :GenTocGFM
 Plugin 'ntpeters/vim-better-whitespace'        " Tracks whitespace
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'     " Number toggling
 Plugin 'scrooloose/nerdtree'                   " File structure tree
@@ -45,8 +45,11 @@ Plugin 'mattn/emmet-vim'                       " Emmet support in vim
 Plugin 'pangloss/vim-javascript'               " JavaScript support
 Plugin 'elzr/vim-json'                         " JSON support
 
+" Elm
+Plugin 'elmcast/elm-vim'                       " Elm support
+
 " Miranda
-Plugin 'zlahham/vim-miranda'                              " Miranda support
+" Plugin 'zlahham/vim-miranda'                              " Miranda support
 
 " Movement
 Plugin 'Lokaltog/vim-easymotion'               " Vimium-like motion ,,<move>
@@ -59,7 +62,7 @@ Plugin 'vim-ruby/vim-ruby'                     " Ruby support
 Plugin 'thoughtbot/vim-rspec'                  " Runs RSpec within vim
 
 " Searching
-Plugin 'craigemery/vim-autotag'                " ctags support for vim
+" Plugin 'craigemery/vim-autotag'                " ctags support for vim
 Plugin 'ctrlpvim/ctrlp.vim'                    " Fuzzy searching in Vim
 
 call vundle#end()
