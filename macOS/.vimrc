@@ -70,6 +70,7 @@ set list listchars=tab:»·,trail:·                            " Set listchars 
 set clipboard=unnamed                                        " Mac OS X Clipboard sharing
 set splitbelow                                               " Split panes to below
 set splitright                                               " Split panes to right
+" set tags=tags                                                " Look for the ctags in the project directory.
 set statusline=%<%f\ %h%m%r%=\ %-14.(%l,%c%V%)\ %P%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
