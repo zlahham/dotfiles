@@ -26,3 +26,7 @@ alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
 
 alias mira="rlwrap mira"
 alias phpmamp='/Applications/MAMP/bin/php/php7.1.12/bin/php'
+
+alias ports="lsof -i -P | grep -i \"listen\""
+
+alias ctags="`brew --prefix`/bin/ctags"
