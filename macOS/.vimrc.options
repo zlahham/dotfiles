@@ -64,12 +64,13 @@ let g:syntastic_html_tidy_ignore_errors  = [
       \  'trimming empty <p>',
       \  'inserting implicit <p>'
       \ ]
+let g:elm_syntastic_show_warnings = 1
 
 " Ultisnips
 let g:UltiSnipsEditSplit           = "vertical"
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-let g:UltiSnipsUsePythonVersion    = 2
+" let g:UltiSnipsUsePythonVersion    = 2.7
 
 filetype on
