@@ -32,7 +32,8 @@ nmap <C-n> :set rnu<CR>
 nmap <C-n> :set rnu!<CR>
 
 " Nerdtree
-map <Tab> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
+map <Tab> :NERDTreeFind<CR>
 
 " RSpec
 map <Leader>t :call RunCurrentSpecFile()<CR>
