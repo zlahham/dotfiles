@@ -30,3 +30,6 @@ alias phpmamp='/Applications/MAMP/bin/php/php7.1.12/bin/php'
 alias ports="lsof -i -P | grep -i \"listen\""
 
 alias ctags="`brew --prefix`/bin/ctags"
+alias ctags_ruby="`brew --prefix`/bin/ctags -R --languages=ruby --exclude=.git --exclude=log ."
+alias ctags_js="`brew --prefix`/bin/ctags -R --languages=javascript --exclude=.git --exclude=log ."
+
