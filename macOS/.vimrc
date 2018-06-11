@@ -28,10 +28,11 @@ endif
 "                           Appearance & Colour
 " ---------------------------------------------------------------------
 
-colorscheme gruvbox                                          " Favourites: gruvbox, sourcerer, hybrid
+colorscheme quantum                                          " Favourites: gruvbox, sourcerer, hybrid
+set termguicolors
 set background=dark
 set t_Co=256
-set term=screen-256color
+" set term=screen-256color
 
 set cursorline                                               " Highlight current cursor line
 set cursorcolumn                                             " Highlight current cursor column

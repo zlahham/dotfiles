@@ -8,12 +8,7 @@ let mapleader = ","
 let g:mapleader = ","
 let base16colorspace=256
 
-" Airline
-" if strftime("%H") < 20
-"   let g:airline_theme                      = 'light'
-" else
-" endif
-let g:airline_theme                      = 'wombat' " base16_pop, base16_summerfruit, simple
+let g:airline_theme                      = 'quantum' " wombat, base16_pop, base16_summerfruit, simple
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts            = 1
 
