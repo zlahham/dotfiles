@@ -72,10 +72,10 @@ else
 fi
 echo
 
-# STEP 5: Install Custom oh-my-zsh Spaceship theme
+# STEP 5: Install Custom oh-my-zsh themes
 echo "=================================================="
 echo "STEP 5:"
-echo "Install Spaceship theme for zsh"
+echo "Install Custom themes for zsh"
 echo "=================================================="
 
 if ![ -f ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme ]
@@ -84,6 +84,15 @@ then
   echo "Your zsh theme has been changed to Spaceship"
 else
   echo "Spaceship already installed"
+fi
+echo
+
+if ![ -f ~/.oh-my-zsh/custom/themes/powerlevel9k ]
+then
+  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+  echo "Powelevel9k installed"
+else
+  echo "Powelevel9k already installed"
 fi
 echo
 

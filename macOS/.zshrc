@@ -1,55 +1,50 @@
+# ------------------------------------------------------------
+#                         oh-my-zsh
+# ------------------------------------------------------------
 # Path to your oh-my-zsh installation.
 export TERM='xterm-256color'
-export ZSH=~/.oh-my-zsh
+export LANG=en_GB.UTF-8
+export EDITOR="$(which vim)"
+export ZSH="$HOME/.oh-my-zsh"
+export DOTFILES="$HOME/workspace/dotfiles/macOS"
+export SSH_KEY_PATH="~/.ssh/dsa_id"
+export NVM_DIR="$HOME/.nvm"
+. /usr/local/etc/profile.d/z.sh
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+# I like: 'dst', 'ys', 'steeef', 'spaceship', 'powerlevel9k/powerlevel9k'
+ZSH_THEME="ys"
+HIST_STAMPS="dd/mm/yyyy"
+HISTSIZE=500
+SAVEHIST=500
+DISABLE_AUTO_TITLE=true
+DISABLE_UPDATE_PROMPT=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv nvm vcs)
+POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
+POWERLEVEL9K_NVM_PROMPT_ALWAYS_SHOW=true
 
-. `brew --prefix`/etc/profile.d/z.sh
 
-# I like: 'dst', 'ys', 'steeef'
-ZSH_THEME="spaceship"
-
-plugins=(brew git npm rails tmux zsh-syntax-highlighting z)
+plugins=(
+  brew
+  git
+  rails
+  # tmux
+  zsh-syntax-highlighting
+  z
+)
 
 source $ZSH/oh-my-zsh.sh
+
 # ------------------------------------------------------------
 #                         Aliases
 # ------------------------------------------------------------
 
-source ~/.aliases
+source $HOME/.aliases
 
-#   ----------------------------------------------------------
+# ------------------------------------------------------------
 #                        ENV VARIABLES
-#   ----------------------------------------------------------
+# ------------------------------------------------------------
 
-source ~/.env
-export SSH_KEY_PATH="~/.ssh/dsa_id"
-export NVM_DIR="$HOME/.nvm"
-
-#   ----------------------------------------------------------
-#                         ZSH Settings
-#   ----------------------------------------------------------
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+source $HOME/.env
 
 # ------------------------------------------------------------
 #                      User Configuration
@@ -59,7 +54,11 @@ COMPLETION_WAITING_DOTS="true"
 setopt noincappendhistory
 setopt nosharehistory
 
-eval "$(rbenv init -)"
+# rbenv
+eval "$(rbenv init - --no-rehash)"
+
+# nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 
 # Local provision file for zsh
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+source $HOME/.zshrc.local

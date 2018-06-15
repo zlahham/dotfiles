@@ -7,9 +7,6 @@ filetype off
 " Access first character in line
 nmap 0 ^
 
-" Copy whole file
-map <Leader> cf ggVG"*y
-
 " CtrlP + Ctags
 nnoremap <leader>. :CtrlPTag<cr>
 
