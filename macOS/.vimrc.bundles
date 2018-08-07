@@ -29,13 +29,13 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 "                        Completion & Snippets
 " ---------------------------------------------------------------------
 Plugin 'ervandew/supertab'                     " Insert mode completion
-" Plugin 'honza/vim-snippets'                    " Snippets are separated from the engine
-" Plugin 'SirVer/ultisnips'                      " Tracks the snippets engine.
+Plugin 'honza/vim-snippets'                    " Snippets are separated from the engine
+Plugin 'SirVer/ultisnips'                      " Tracks the snippets engine.
 
 " ---------------------------------------------------------------------
 "                            Functionality
 " ---------------------------------------------------------------------
-" Plugin 'jiangmiao/auto-pairs'                  " Insert/delete {[( in pairs
+Plugin 'jiangmiao/auto-pairs'                  " Insert/delete {[( in pairs
 Plugin 'vim-scripts/tComment'                  " Commenting on lines
 Plugin 'tpope/vim-surround'                    " Modify surroundings with cs
 Plugin 'tpope/vim-unimpaired'                  " Complementary mapping pairs
@@ -50,7 +50,7 @@ Plugin 'airblade/vim-gitgutter'                " Show git diff on the right
 "                              HTML & CSS
 " ---------------------------------------------------------------------
 Plugin 'vim-scripts/matchit.zip'               " Matches tags for HTML
-" Plugin 'mattn/emmet-vim'                       " Emmet support in vim
+Plugin 'mattn/emmet-vim'                       " Emmet support in vim [C-y + ,]
 
 " ---------------------------------------------------------------------
 "                              JavaScript
