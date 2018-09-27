@@ -156,11 +156,12 @@ echo "STEP 8:"
 echo "Adding custom fonts to Font Book"
 echo "=================================================="
 
-if ! [ -f ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf ] &&  [ -f ~/Library/Fonts/FiraCode-Retina.ttf ]
+if ! [ -f ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf ] &&  [ -f ~/Library/Fonts/FiraCode-Retina.ttf ] && [ -f ~/Library/Fonts/Lato-Regular.ttf ]
 then
-  echo "Adding Droid Sans Mono & Fira Code to your fonts..."
+  echo "Adding Droid Sans Mono, Fira Code, and Lato to your fonts..."
   sudo cp ~/workspace/dotfiles/fonts/Droid_Sans_Mono_for_Powerline.otf ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf
   sudo cp ~/workspace/dotfiles/fonts/FiraCode-Retina.ttf ~/Library/Fonts/FiraCode-Retina.ttf
+  sudo cp ~/workspace/dotfiles/fonts/Lato-Regular.ttf ~/Library/Fonts/Lato-Regular.ttf
   echo "Please restart your terminal and select this font from the preferences of your favourite Terminal"
 else
   echo "Fonts already added!"
