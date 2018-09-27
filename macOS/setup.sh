@@ -111,19 +111,20 @@ echo "STEP 6:"
 echo "Default shell to zsh..."
 echo "=================================================="
 
-if [ -n "$ZSH_VERSION" ]; then
+if [ "$(echo $SHELL)" = "/bin/zsh" ]
+then
   echo "Your default shell is already zsh"
-elif [ -n "$BASH_VERSION" ]; then
+else
   echo "Changing your default shell to zsh..."
   chsh -s /bin/zsh
   echo "Your default shell is now zsh"
-fi
+fi;
 echo
 
-# STEP 7: Create an empty .env file
+# STEP 7: Create an empty .env and .zshrc.local files
 echo "=================================================="
 echo "STEP 7:"
-echo "Create an empty .env file"
+echo "Create a empty .env and .zshrc.local files"
 echo "=================================================="
 
 if [ ! -f ~/.env ]
