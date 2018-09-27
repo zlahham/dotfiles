@@ -1,38 +1,8 @@
 #!/bin/bash
 
-# STEP 1: Install homebrew
+# STEP 1: Symlink dotfiles
 echo "=================================================="
 echo "STEP 1:"
-echo "Installing homebrew..."
-echo "=================================================="
-
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-echo
-echo "homebrew installation complete!"
-echo
-
-# STEP 2: Install homebrew formulae
-echo "=================================================="
-echo "STEP 2:"
-echo "Installing homebrew packages..."
-echo "=================================================="
-
-for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv; do
-  if brew list -1 | grep -q "^${pkg}\$"; then
-    echo "Package '$pkg' is installed"
-  else
-    echo "Package '$pkg' is not installed"
-    brew install $i;
-  fi
-done
-
-echo
-echo "homebrew packages installed!"
-echo
-
-# STEP 3: Symlink dotfiles
-echo "=================================================="
-echo "STEP 3:"
 echo "Symlinking your dotfiles to your home directory..."
 echo "=================================================="
 ln -s -f ~/workspace/dotfiles/macOS/.aliases ~/.aliases
@@ -55,13 +25,52 @@ echo
 echo "Symlinking complete!"
 echo
 
+# STEP 2: Install homebrew
+echo "=================================================="
+echo "STEP 2:"
+echo "homebrew setup..."
+echo "=================================================="
+
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    echo "Installing homebrew..."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "homebrew installation complete!"
+else
+    echo "Updating homebrew..."
+    brew update
+    echo "homebrew update complete!"
+fi
+echo
+
+
+# STEP 3: Install homebrew formulae
+echo "=================================================="
+echo "STEP 3:"
+echo "Installing homebrew packages..."
+echo "=================================================="
+
+for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv; do
+  if brew list -1 | grep -q "^${pkg}\$"; then
+    echo "Package '$pkg' is installed"
+  else
+    echo "Package '$pkg' is not installed"
+    brew install $pkg;
+  fi
+done
+
+echo
+echo "homebrew packages installed!"
+echo
+
 # STEP 4: Install oh-my-zsh
 echo "=================================================="
 echo "STEP 4:"
 echo "oh-my-zsh setup..."
 echo "=================================================="
 
-if ![ -f ~/.oh-my-zsh ]
+if [ ! -d ~/.oh-my-zsh ]
 then
   echo "Downloading oh-my-zsh..."
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -78,7 +87,7 @@ echo "STEP 5:"
 echo "Install Custom themes for zsh"
 echo "=================================================="
 
-if ![ -f ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme ]
+if [ ! -f ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme ]
 then
   curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
   echo "Your zsh theme has been changed to Spaceship"
@@ -87,7 +96,7 @@ else
 fi
 echo
 
-if ![ -f ~/.oh-my-zsh/custom/themes/powerlevel9k ]
+if [ ! -f ~/.oh-my-zsh/custom/themes/powerlevel9k ]
 then
   git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
   echo "Powelevel9k installed"
@@ -102,13 +111,12 @@ echo "STEP 6:"
 echo "Default shell to zsh..."
 echo "=================================================="
 
-if ! [ -f /bin/zsh ]
-then
+if [ -n "$ZSH_VERSION" ]; then
+  echo "Your default shell is already zsh"
+elif [ -n "$BASH_VERSION" ]; then
   echo "Changing your default shell to zsh..."
   chsh -s /bin/zsh
   echo "Your default shell is now zsh"
-else
-  echo "Your default shell is already zsh"
 fi
 echo
 
@@ -118,7 +126,7 @@ echo "STEP 7:"
 echo "Create an empty .env file"
 echo "=================================================="
 
-if ! [ -f ~/.env ]
+if [ ! -f ~/.env ]
 then
   echo "Creating an empty file to place your ENV variables..."
   touch ~/.env
@@ -134,7 +142,7 @@ echo "STEP 7:"
 echo "Install Vundle for vim"
 echo "=================================================="
 
-if ! [ -d ~/.vim/bundle/Vundle.vim ]
+if [ ! -d ~/.vim/bundle/Vundle.vim ]
 then
   echo "Downloading Vundle..."
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -156,7 +164,7 @@ echo "STEP 8:"
 echo "Adding custom fonts to Font Book"
 echo "=================================================="
 
-if ! [ -f ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf ] &&  [ -f ~/Library/Fonts/FiraCode-Retina.ttf ] && [ -f ~/Library/Fonts/Lato-Regular.ttf ]
+if [ ! -f ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf ] &&  [ ! -f ~/Library/Fonts/FiraCode-Retina.ttf ] && [ !  -f ~/Library/Fonts/Lato-Regular.ttf ]
 then
   echo "Adding Droid Sans Mono, Fira Code, and Lato to your fonts..."
   sudo cp ~/workspace/dotfiles/fonts/Droid_Sans_Mono_for_Powerline.otf ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf
@@ -191,7 +199,7 @@ echo "STEP 10:"
 echo "Setting up rbenv"
 echo "=================================================="
 
-if ! [ -d ~/.tmux/plugins/tpm ]
+if [ ! -d ~/.tmux/plugins/tpm ]
 then
   echo "Downloading tpm..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
