@@ -137,9 +137,19 @@ else
 fi
 echo
 
+if [ ! -f ~/.zshrc.local ]
+then
+  echo "Creating an empty file to place your local zsh config..."
+  touch ~/.zshrc.local
+  echo "File created!"
+else
+  echo ".zshrc.local file already present!"
+fi
+echo
+
 # STEP 8: Install Vundle package manager for vim
 echo "=================================================="
-echo "STEP 7:"
+echo "STEP 8:"
 echo "Install Vundle for vim"
 echo "=================================================="
 
