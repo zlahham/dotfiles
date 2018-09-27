@@ -165,31 +165,40 @@ then
   echo "Installation complete!"
 else
   echo "Vundle installed!"
-  vim +PluginClean +qall
+  vim +PluginClean +PluginInstall +qall
 fi
 echo
 
-# STEP 8: Add custom fonts
+# STEP 9: Add custom fonts
 echo "=================================================="
-echo "STEP 8:"
+echo "STEP 9:"
 echo "Adding custom fonts to Font Book"
 echo "=================================================="
 
-if [ ! -f ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf ] &&  [ ! -f ~/Library/Fonts/FiraCode-Retina.ttf ] && [ !  -f ~/Library/Fonts/Lato-Regular.ttf ]
+if [ ! -f ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf ]
 then
-  echo "Adding Droid Sans Mono, Fira Code, and Lato to your fonts..."
+  echo "Adding Droid Sans Mono..."
   sudo cp ~/workspace/dotfiles/fonts/Droid_Sans_Mono_for_Powerline.otf ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf
-  sudo cp ~/workspace/dotfiles/fonts/FiraCode-Retina.ttf ~/Library/Fonts/FiraCode-Retina.ttf
-  sudo cp ~/workspace/dotfiles/fonts/Lato-Regular.ttf ~/Library/Fonts/Lato-Regular.ttf
-  echo "Please restart your terminal and select this font from the preferences of your favourite Terminal"
-else
-  echo "Fonts already added!"
 fi
+
+if [ ! -f ~/Library/Fonts/FiraCode-Retina.ttf ]
+then
+  echo "Adding Fira Code..."
+  sudo cp ~/workspace/dotfiles/fonts/FiraCode-Retina.ttf ~/Library/Fonts/FiraCode-Retina.ttf
+fi
+
+if [ ! -f ~/Library/Fonts/Lato-Regular.ttf ]
+then
+  echo "Adding Lato..."
+  sudo cp ~/workspace/dotfiles/fonts/Lato-Regular.ttf ~/Library/Fonts/Lato-Regular.ttf
+fi
+
+echo "Please restart your terminal and select a font from the preferences of your favourite Terminal"
 echo
 
-# STEP 9: Setup rbenv
+# STEP 10: Setup rbenv
 echo "=================================================="
-echo "STEP 9:"
+echo "STEP 10:"
 echo "Setting up rbenv"
 echo "=================================================="
 
@@ -204,9 +213,9 @@ else
 fi
 echo
 
-# STEP 10: Install Tmux package manager tpm
+# STEP 11: Install Tmux package manager tpm
 echo "=================================================="
-echo "STEP 10:"
+echo "STEP 11:"
 echo "Setting up rbenv"
 echo "=================================================="
 
