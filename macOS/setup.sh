@@ -216,7 +216,7 @@ echo
 # STEP 11: Install Tmux package manager tpm
 echo "=================================================="
 echo "STEP 11:"
-echo "Setting up rbenv"
+echo "Setting up Tmux package manager"
 echo "=================================================="
 
 if [ ! -d ~/.tmux/plugins/tpm ]
@@ -227,5 +227,22 @@ then
   echo "Please start a tmux session and enter CTRL-A + I to install the packages"
 else
   echo "tpm already installed!"
+fi
+echo
+
+# STEP 12: Setup Node Version Manager (nvm)
+echo "=================================================="
+echo "STEP 12:"
+echo "Setting up Node Version Manager (nvm)"
+echo "=================================================="
+
+if [ ! -d ~/.nvm ]
+then
+  echo "Setting up nvm..."
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
+  echo
+  echo "Please restart your terminal"
+else
+  echo "nvm already setup!"
 fi
 echo
