@@ -25,6 +25,7 @@ POWERLEVEL9K_NVM_PROMPT_ALWAYS_SHOW=true
 
 plugins=(
   brew
+  docker
   git
   rails
   # tmux
