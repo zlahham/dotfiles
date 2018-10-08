@@ -51,7 +51,7 @@ echo "STEP 3:"
 echo "Installing homebrew packages..."
 echo "=================================================="
 
-for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv heroku-toolbelt; do
+for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv pyenv heroku-toolbelt; do
   if brew list -1 | grep -q "^${pkg}\$"; then
     echo "Package '$pkg' is installed"
   else
@@ -187,6 +187,12 @@ then
   sudo cp ~/workspace/dotfiles/fonts/FiraCode-Retina.ttf ~/Library/Fonts/FiraCode-Retina.ttf
 fi
 
+if [ ! -f ~/Library/Fonts/Meslo_LG_L_DZ_Regular_Nerd_Font_Complete.otf ]
+then
+  echo "Adding Meslo (Nerd Font)..."
+  sudo cp ~/workspace/dotfiles/fonts/Meslo_LG_L_DZ_Regular_Nerd_Font_Complete.otf ~/Library/Fonts/Meslo_LG_L_DZ_Regular_Nerd_Font_Complete.otf
+fi
+
 if [ ! -f ~/Library/Fonts/Lato-Regular.ttf ]
 then
   echo "Adding Lato..."
@@ -239,7 +245,7 @@ echo "=================================================="
 if [ ! -d ~/.nvm ]
 then
   echo "Setting up nvm..."
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.11/install.sh | bash
   echo
   echo "Please restart your terminal"
 else
