@@ -58,6 +58,8 @@ source $HOME/.env
 #                      User Configuration
 # ------------------------------------------------------------
 
+bindkey "\e\eOD" backward-word
+bindkey "\e\eOC" forward-word
 
 # Local provision file for zsh
 source $HOME/.zshrc.local
