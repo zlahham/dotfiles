@@ -51,7 +51,7 @@ echo "STEP 3:"
 echo "Installing homebrew packages..."
 echo "=================================================="
 
-for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv pyenv heroku-toolbelt; do
+for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv pyenv heroku-toolbelt terraform; do
   if brew list -1 | grep -q "^${pkg}\$"; then
     echo "Package '$pkg' is installed"
   else

@@ -21,13 +21,13 @@ DISABLE_UPDATE_PROMPT=true
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable dir rbenv nvm pyenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time disk_usage ram battery)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable dir rbenv nvm pyenv java_version vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time battery)
 POWERLEVEL9K_ROOT_ICON="\uF09C"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
 # POWERLEVEL9K_NVM_PROMPT_ALWAYS_SHOW=true
-# POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
+POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
 
 
 plugins=(
@@ -73,7 +73,12 @@ eval "$(rbenv init - --no-rehash)"
 
 # pyenv
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # nvm
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This lazily loads nvm
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
