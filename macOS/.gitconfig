@@ -1,6 +1,9 @@
 [alias]
   hist = log --graph --pretty=format: '%h %ad | %s%d [%an]' --date=short
   gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+  uncommit = reset --soft HEAD^
+  unstage = reset
+  staged = diff --cached
 [color]
   ui = true
 [credential]
@@ -14,6 +17,7 @@
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
+	process = git-lfs filter-process
 [format]
   pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
   graph = true
@@ -22,5 +26,5 @@
 [push]
   default = simple
 [user]
-  email = zlahham@gmail.com
-  name = Zaid Al Lahham
+	email = zlahham@gmail.com
+	name = Zaid Lahham

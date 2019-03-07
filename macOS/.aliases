@@ -14,4 +14,3 @@ alias zshconfig="vim ~/.zshrc"
 
 alias node='unalias node ; unalias npm ; nvm use default ; node $@'
 alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
-
