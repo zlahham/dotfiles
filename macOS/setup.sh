@@ -52,7 +52,7 @@ echo "STEP 3:"
 echo "Installing homebrew packages..."
 echo "=================================================="
 
-for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv pyenv heroku-toolbelt terraform zsh-autosuggestions zsh-syntax-highlighting; do
+for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv pyenv heroku-toolbelt terraform zsh-autosuggestions zsh-syntax-highlighting n; do
   if brew list -1 | grep -q "^${pkg}\$"; then
     echo "Package '$pkg' is installed"
   else
@@ -234,22 +234,5 @@ then
   echo "Please start a tmux session and enter CTRL-A + I to install the packages"
 else
   echo "tpm already installed!"
-fi
-echo
-
-# STEP 12: Setup Node Version Manager (nvm)
-echo "=================================================="
-echo "STEP 12:"
-echo "Setting up Node Version Manager (nvm)"
-echo "=================================================="
-
-if [ ! -d ~/.nvm ]
-then
-  echo "Setting up nvm..."
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.11/install.sh | bash
-  echo
-  echo "Please restart your terminal"
-else
-  echo "nvm already setup!"
 fi
 echo
