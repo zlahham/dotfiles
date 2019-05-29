@@ -8,7 +8,6 @@ export EDITOR="$(which vim)"
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/workspace/dotfiles/macOS"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
-export NVM_DIR="$HOME/.nvm"
 . /usr/local/etc/profile.d/z.sh
 
 # I like: 'dst', 'ys', 'steeef', 'spaceship', 'powerlevel9k/powerlevel9k'
@@ -21,12 +20,11 @@ DISABLE_UPDATE_PROMPT=true
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable dir vcs virtualenv node_version)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time battery)
 POWERLEVEL9K_ROOT_ICON="\uF09C"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 # POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
-# POWERLEVEL9K_NVM_PROMPT_ALWAYS_SHOW=true
 # POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
 
 
@@ -37,12 +35,12 @@ plugins=(
   aws
   # rails
   # tmux
-  zsh-syntax-highlighting
   z
 )
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ------------------------------------------------------------
 #                         Aliases
@@ -76,10 +74,6 @@ eval "$(rbenv init - --no-rehash)"
 # pyenv
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
-
-# nvm
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This lazily loads nvm
 
 # jenv
 # export PATH="$HOME/.jenv/bin:$PATH"
