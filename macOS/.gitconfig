@@ -17,7 +17,7 @@
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
-	process = git-lfs filter-process
+  process = git-lfs filter-process
 [format]
   pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
   graph = true
@@ -26,5 +26,5 @@
 [push]
   default = simple
 [user]
-	email = zlahham@gmail.com
-	name = Zaid Lahham
+  email = zaid@lahham.tech
+  name = Zaid Lahham
