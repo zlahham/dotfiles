@@ -11,7 +11,8 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 . /usr/local/etc/profile.d/z.sh
 
 # I like: 'dst', 'ys', 'steeef', 'spaceship', 'powerlevel9k/powerlevel9k'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 HIST_STAMPS="dd/mm/yyyy"
 HISTSIZE=500
 SAVEHIST=500
@@ -25,8 +26,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator
 POWERLEVEL9K_ROOT_ICON="\uF09C"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 # POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
-# POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
-
 
 plugins=(
   brew
