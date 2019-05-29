@@ -20,7 +20,6 @@ ln -s -f ~/workspace/dotfiles/macOS/.vimrc.commands ~/.vimrc.commands
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.mappings ~/.vimrc.mappings
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.options ~/.vimrc.options
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc ~/.zshrc
-# ln -s -f ~/workspace/dotfiles/macOS/zsh_themes/powerlevel9k.zsh-theme ~/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
 
 echo
 echo "Symlinking complete!"
@@ -53,15 +52,6 @@ echo "Installing homebrew packages..."
 echo "=================================================="
 
 brew bundle
-
-# for pkg in git vim tmux zsh wget reattach-to-user-namespace ctags the_silver_searcher htop z rbenv pyenv heroku-toolbelt terraform zsh-autosuggestions zsh-syntax-highlighting n; do
-#   if brew list -1 | grep -q "^${pkg}\$"; then
-#     echo "Package '$pkg' is installed"
-#   else
-#     echo "Package '$pkg' is not installed"
-#     brew install $pkg;
-#   fi
-# done
 
 echo
 echo "homebrew packages installed!"
