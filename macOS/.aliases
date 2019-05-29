@@ -12,5 +12,4 @@ alias ports="lsof -i -P | grep -i \"listen\""
 alias vimconfig="vim ~/.vimrc"
 alias zshconfig="vim ~/.zshrc"
 
-alias node='unalias node ; unalias npm ; nvm use default ; node $@'
-alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
+alias venv="source ~/.virtualenvs/venv/bin/activate"
