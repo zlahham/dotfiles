@@ -1,13 +1,14 @@
-tap "homebrew/bundle"
-tap "homebrew/core"
+cask_args appdir: '/Applications'
+
+# Packages
 brew "ctags"
-brew "git"
 brew "htop"
 brew "n"
-brew "pyenv"
 brew "python"
+brew "postgresql"
 brew "rbenv"
 brew "reattach-to-user-namespace"
+brew "ruby-build"
 brew "terraform"
 brew "the_silver_searcher"
 brew "tmux"
@@ -17,3 +18,15 @@ brew "z"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+
+# Applications
+tap "caskroom/cask"
+cask "java8"
+cask "iterm2"
+
+# Fonts
+tap "caskroom/fonts"
+cask "font-fira-code"
+
+# Zsh Themes
+tap "sambadevi/powerlevel9k"
