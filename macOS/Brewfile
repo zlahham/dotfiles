@@ -4,11 +4,9 @@ cask_args appdir: '/Applications'
 brew "ctags"
 brew "htop"
 brew "n"
-brew "python"
 brew "postgresql"
 brew "rbenv"
 brew "reattach-to-user-namespace"
-brew "ruby-build"
 brew "terraform"
 brew "the_silver_searcher"
 brew "tmux"
@@ -20,7 +18,7 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 # Applications
-tap "caskroom/cask"
+# tap "caskroom/cask"
 # cask "java8"
 # cask "iterm2"
 
