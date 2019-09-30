@@ -71,10 +71,8 @@ setopt nosharehistory
 # rbenv
 eval "$(rbenv init - --no-rehash)"
 
-# pyenv
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+# . /usr/local/opt/asdf/asdf.sh
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
-# jenv
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
+# starship prompt
+eval "$(starship init zsh)"

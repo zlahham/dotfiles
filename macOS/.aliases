@@ -11,5 +11,6 @@ alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
 alias ports="lsof -i -P | grep -i \"listen\""
 alias vimconfig="vim ~/.vimrc"
 alias zshconfig="vim ~/.zshrc"
+alias dotfiles="vim ~/workspace/dotfiles/macOS/"
 
 alias venv="source ~/.virtualenvs/venv/bin/activate"
