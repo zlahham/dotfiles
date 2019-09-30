@@ -1,14 +1,17 @@
 alias ls='ls -GFh'
 alias ll='ls -lAFh'                         # Long ls implementation
-cd() { builtin cd "$@"; ls; }               # Always list directory contents upon 'cd'
+cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
 
 alias ..='cd ../'                           # Go back 1 directory levels
 alias ctags="/usr/local/bin/ctags"
 alias path='echo -e ${PATH//:/\\n}'         # path: Echo all executable Paths
+
 alias pg_start="pg_ctl -D /usr/local/var/postgres start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
+
 alias ports="lsof -i -P | grep -i \"listen\""
+
 alias vimconfig="vim ~/.vimrc"
 alias zshconfig="vim ~/.zshrc"
 alias dotfiles="vim ~/workspace/dotfiles/macOS/"

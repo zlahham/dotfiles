@@ -20,6 +20,8 @@ ln -s -f ~/workspace/dotfiles/macOS/.vimrc.commands ~/.vimrc.commands
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.mappings ~/.vimrc.mappings
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.options ~/.vimrc.options
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc ~/.zshrc
+ln -s -f ~/workspace/dotfiles/macOS/.zshrc.plugins ~/.zshrc.plugins
+ln -s -f ~/workspace/dotfiles/macOS/.zshrc.theme ~/.zshrc.theme
 
 echo
 echo "Symlinking complete!"
