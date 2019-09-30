@@ -1,19 +1,19 @@
+cask_args appdir: '/Applications'
 tap "homebrew/bundle"
 tap "homebrew/core"
-tap "homebrew/cask-fonts"
 
+# Packages
 brew "ctags"
 brew "curl"
-brew "font-fira-code"
 brew "fzf"
 brew "git"
 brew "go"
 brew "htop"
 brew "n"
+brew "postgresql"
 brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "redis"
-brew "starship"
 brew "terraform"
 brew "the_silver_searcher"
 brew "tmux"
@@ -23,3 +23,20 @@ brew "z"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+
+# Fonts
+tap "caskroom/fonts"
+cask "font-fira-code"
+cask "font-hack-nerd-font"
+cask "font-meslo-nerd-font-mono"
+
+# Zsh Themes
+tap "sambadevi/powerlevel9k"
+brew "powerlevel9k"
+brew "starship"
+
+# Applications
+# tap "caskroom/cask"
+# cask "java8"
+# cask "iterm2"
+
