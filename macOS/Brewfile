@@ -1,8 +1,10 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
+tap "homebrew/cask-fonts"
 
 brew "ctags"
 brew "curl"
+brew "font-fira-code"
 brew "fzf"
 brew "git"
 brew "go"
