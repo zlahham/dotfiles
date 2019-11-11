@@ -66,6 +66,5 @@ let g:UltiSnipsEditSplit           = "vertical"
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-" let g:UltiSnipsUsePythonVersion    = 2.7
 
 filetype on

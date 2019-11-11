@@ -9,7 +9,11 @@ alias path='echo -e ${PATH//:/\\n}'         # path: Echo all executable Paths
 alias pg_start="pg_ctl -D /usr/local/var/postgres start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
 alias ports="lsof -i -P | grep -i \"listen\""
+
 alias vimconfig="vim ~/.vimrc"
+alias neovimconfig="vim ~/.config/nvim/init.vim"
 alias zshconfig="vim ~/.zshrc"
 
-alias venv="source ~/.virtualenvs/venv/bin/activate"
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi

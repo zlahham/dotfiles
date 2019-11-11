@@ -8,7 +8,7 @@ export EDITOR="$(which vim)"
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/workspace/dotfiles/macOS"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
-. /usr/local/etc/profile.d/z.sh
+# . /usr/local/etc/profile.d/z.sh
 
 # I like: 'dst', 'ys', 'steeef', 'spaceship', 'powerlevel9k/powerlevel9k'
 # ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -21,18 +21,22 @@ DISABLE_UPDATE_PROMPT=true
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable dir vcs virtualenv node_version)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time battery)
-POWERLEVEL9K_ROOT_ICON="\uF09C"
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir vcs node_version go_version rbenv) # kubecontext
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time battery)
+OS_ICON=""
+POWERLEVEL9K_RUBY_ICON="💎"
+POWERLEVEL9K_GO_ICON="🐹"
+POWERLEVEL9K_KUBERNETES_ICON="☸️ "
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-# POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
 
 plugins=(
   brew
   docker
   git
-  aws
-  # rails
+  kubectl
+  rails
+  # aws
   # tmux
   z
 )
@@ -69,11 +73,3 @@ setopt nosharehistory
 
 # rbenv
 eval "$(rbenv init - --no-rehash)"
-
-# pyenv
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
-# jenv
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"

@@ -35,8 +35,8 @@ set t_Co=256
 " set term=screen-256color
 
 set cursorline                                               " Highlight current cursor line
-set cursorcolumn                                             " Highlight current cursor column
-hi CursorColumn cterm=NONE ctermbg=black                     " Set a vertical bar for the cursor
+" set cursorcolumn                                             " Highlight current cursor column
+" hi CursorColumn cterm=NONE ctermbg=black                     " Set a vertical bar for the cursor
 
 set hlsearch
 set incsearch
@@ -65,15 +65,13 @@ set backspace=2                                              " Backspace deletes
 set tabstop=2                                                " Tabs are always 2 spaces
 set expandtab                                                " Expand tabs into spaces
 set shiftwidth=2                                             " Reindent with 2 spaces (using <<)
-set list                                                     " Show invisible chars
-set listchars=""                                             " Reset listchars
 set list listchars=tab:»·,trail:·                            " Set listchars for tabs and trailing spaces
 set clipboard=unnamed                                        " Mac OS X Clipboard sharing
 set splitbelow                                               " Split panes to below
 set splitright                                               " Split panes to right
 set foldmethod=indent                                        " Folding performance
 set foldlevelstart=999                                       " Only auto-fold if file > 999 levels
-" set tags=tags                                                " Look for the ctags in the project directory.
+set tags=tags                                                " Look for the ctags in the project directory.
 set statusline=%<%f\ %h%m%r%=\ %-14.(%l,%c%V%)\ %P%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
@@ -93,8 +91,6 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md setlocal filetype=ghmarkdown
-  autocmd BufRead,BufNewFile *.jflex setlocal filetype=java
-  autocmd BufRead,BufNewFile *.cup setlocal filetype=java
 
   " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
@@ -106,14 +102,6 @@ augroup vimrcEx
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
 augroup END
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-        \ | wincmd p | diffthis
-endif
 
 " ---------------------------------------------------------------------
 "                            Plugin Options

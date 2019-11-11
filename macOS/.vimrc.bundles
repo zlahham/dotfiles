@@ -14,8 +14,8 @@ call vundle#begin()
 " ---------------------------------------------------------------------
 " Plugin 'morhetz/gruvbox'                       " Colour scheme
 Plugin 'tyrannicaltoucan/vim-quantum'
-Plugin 'vim-scripts/Tabular'                   " Line up text in a tabular format :Tab /=
-Plugin 'scrooloose/syntastic'                  " Syntax checker
+" Plugin 'vim-scripts/Tabular'                   " Line up text in a tabular format :Tab /=
+" Plugin 'scrooloose/syntastic'                  " Syntax checker
 "Plugin 'jtratner/vim-flavored-markdown'        " Highlighting for Markdown snippets
 "Plugin 'mzlogin/vim-markdown-toc'              " Generate ToC for READMEs :GenTocGFM
 Plugin 'ntpeters/vim-better-whitespace'        " Tracks whitespace
