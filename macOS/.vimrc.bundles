@@ -64,6 +64,11 @@ Plugin 'pangloss/vim-javascript'               " JavaScript support
 " Plugin 'elmcast/elm-vim'                       " Elm support
 
 " ---------------------------------------------------------------------
+"                               Go
+" ---------------------------------------------------------------------
+Plugin 'fatih/vim-go'                       " Go support
+" ---------------------------------------------------------------------
+
 "                              Miranda
 " ---------------------------------------------------------------------
 " Plugin 'zlahham/vim-miranda'                              " Miranda support

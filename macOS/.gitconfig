@@ -28,3 +28,5 @@
 [user]
   email = zaid@lahham.tech
   name = Zaid Lahham
+[includeIf "gitdir:~/workspace/client_name/**"]
+  path = ~/.gitconfig-client_name

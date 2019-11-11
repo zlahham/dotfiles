@@ -1,33 +1,51 @@
 cask_args appdir: '/Applications'
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "sambadevi/powerlevel9k"
+tap "teamookla/speedtest"
 
 # Packages
 brew "ctags"
+brew "curl"
+brew "fzf"
+brew "ghostscript"
+brew "go"
 brew "htop"
+brew "imagemagick"
+brew "jq"
+brew "kubectl"
 brew "n"
 brew "postgresql"
 brew "rbenv"
 brew "reattach-to-user-namespace"
+brew "redis"
+brew "speedtest-cli"
 brew "terraform"
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
+brew "neovim"
 brew "wget"
+brew "yarn"
 brew "z"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
-# Applications
-# tap "caskroom/cask"
-# cask "java8"
-# cask "iterm2"
-
 # Fonts
-tap "caskroom/fonts"
 cask "font-fira-code"
 cask "font-hack-nerd-font"
 cask "font-meslo-nerd-font-mono"
 
 # Zsh Themes
-tap "sambadevi/powerlevel9k"
 brew "powerlevel9k"
+brew "starship"
+
+# Applications
+# cask "1password"
+cask "docker"
+cask "google-chrome"
+cask "iterm2"
+# cask "slack"
