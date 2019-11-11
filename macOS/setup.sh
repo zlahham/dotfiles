@@ -14,11 +14,16 @@ ln -s -f ~/workspace/dotfiles/macOS/.pryrc ~/.pryrc
 ln -s -f ~/workspace/dotfiles/macOS/.rspec ~/.rspec
 ln -s -f ~/workspace/dotfiles/macOS/.rubocop.yml ~/.rubocop.yml
 ln -s -f ~/workspace/dotfiles/macOS/.tmux.conf ~/.tmux.conf
+
+# vim related files:
+ln -s -f ~/workspace/dotfiles/macOS/.nvimrc ~/.config/nvim/init.vim
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc ~/.vimrc
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.bundles ~/.vimrc.bundles
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.commands ~/.vimrc.commands
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.mappings ~/.vimrc.mappings
 ln -s -f ~/workspace/dotfiles/macOS/.vimrc.options ~/.vimrc.options
+
+# zsh related files:
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc ~/.zshrc
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc.plugins ~/.zshrc.plugins
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc.theme ~/.zshrc.theme
