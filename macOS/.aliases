@@ -16,4 +16,5 @@ alias vimconfig="vim ~/.vimrc"
 alias zshconfig="vim ~/.zshrc"
 alias dotfiles="vim ~/workspace/dotfiles/macOS/"
 
-alias venv="source ~/.virtualenvs/venv/bin/activate"
+alias venv_create="python3 -m venv ~/workspace/venv"
+alias venv="source ~/workspace/venv/bin/activate"

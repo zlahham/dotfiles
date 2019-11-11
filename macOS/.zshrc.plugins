@@ -1,7 +1,9 @@
 #  brew, docker, aws, rails
 plugins=(
+  aws
   git
   tmux
+  rails
   z
 )
 

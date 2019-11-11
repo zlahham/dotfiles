@@ -46,10 +46,7 @@ setopt noincappendhistory
 setopt nosharehistory
 
 # rbenv
-eval "$(rbenv init - --no-rehash)"
-
-# . /usr/local/opt/asdf/asdf.sh
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+eval "$(rbenv init -)"
 
 # starship prompt
 eval "$(starship init zsh)"
