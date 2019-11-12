@@ -112,7 +112,7 @@ echo "STEP 7:"
 echo "Install vim-plug for neovim"
 echo "=================================================="
 
-if [ ! -d ~/.config/nvim/autoload/plug.vim ]
+if [ ! -f ~/.config/nvim/autoload/plug.vim ]
 then
   echo "Downloading vim-plug..."
   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
@@ -120,11 +120,11 @@ then
   printf "Download complete!\n"
 
   echo "Installing vim plugins..."
-  vim +PlugInstall +qall
+  nvim +PlugInstall +qall
   printf "Installation complete!\n"
 else
-  echo "vim-plug installed!"
-  vim +PlugClean +PlugInstall +qall
+  echo "vim-plug already installed!"
+  nvim +PlugClean +PlugInstall +qall
   echo
 fi
 
