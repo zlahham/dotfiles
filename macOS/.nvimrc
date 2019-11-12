@@ -1,3 +1,12 @@
+" =====================================================================
+"                              Zaid's neovimrc
+" =====================================================================
+
+" Author: Zaid Al Lahham [http://zaidlahham.me]
+" Source: https://github.com/zlahham/dotfiles
+
+" ---------------------------------------------------------------------
+
 set nocompatible            " disable compatibility to old-time vi
 set spelllang=en_gb
 set showmatch               " show matching brackets.
@@ -29,6 +38,10 @@ set rtp+=/usr/local/opt/fzf " list of dirs to be searched for these runtime file
 filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 
+" ---------------------------------------------------------------------
+"                                Plugins
+" ---------------------------------------------------------------------
+
 call plug#begin('~/.config/nvim/plugged')
   Plug 'tyrannicaltoucan/vim-quantum'                           " color scheme
   Plug 'vim-airline/vim-airline'                                " nicer status bar
@@ -47,19 +60,24 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-surround'                                     " modify surroundings with cs
   Plug 'tpope/vim-fugitive'                                     " git wrapper
   Plug 'airblade/vim-gitgutter'                                 " Show git diff on the left
+  Plug 'scrooloose/nerdtree'                                    " better project tree
 call plug#end()
 
 colorscheme quantum
 
+" ---------------------------------------------------------------------
+"                                Options
+" ---------------------------------------------------------------------
+"
 let mapleader = ","
 let g:mapleader = ","
 let base16colorspace=256
 
 " Native netrw Tree
-let g:netrw_liststyle=3     " Tree
-let g:netrw_banner=0        " Removes banner
-let g:netrw_browse_split=4  " Not sure yet
-let g:netrw_winsize=30      " Width of Tree
+" let g:netrw_liststyle=3     " Tree
+" let g:netrw_banner=0        " Removes banner
+" let g:netrw_browse_split=4  " Not sure yet
+" let g:netrw_winsize=30      " Width of Tree
 
 " Neomake
 " When writing a buffer (no delay).
@@ -77,7 +95,17 @@ let g:airline_theme='quantum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts            = 1
 
-nnoremap <TAB> :Lex<CR>
+" NERDTree
+let NERDTreeQuitOnOpen          = 1
+let NERDChristmasTree           = 1
+let NERDTreeHighlightCursorline = 1
+let NERDTreeShowHidden          = 1
+let NERDTreeMapActivateNode     = '<CR>'
+
+" ---------------------------------------------------------------------
+"                                Mappings
+" ---------------------------------------------------------------------
+
 nnoremap <C-p> :FZF<CR>
 
 " Access first character in line
@@ -112,7 +140,8 @@ map <Leader>a :call RunAllSpecs()<CR>
 nnoremap \ :Ag<SPACE>
 
 " Search for # of occurances
-map ,# #<C-O>:%s///gn<CR>
+map <leader># #<C-O>:%s///gn<CR>
+map <leader><CR> :noh<CR>
 
 " Tabs
 map <leader>tn :tabnew<cr>
@@ -130,4 +159,5 @@ vnoremap // :TComment<CR>
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
-
+" NERDTreeFind
+nnoremap <silent> <Tab> :NERDTreeToggle<CR>

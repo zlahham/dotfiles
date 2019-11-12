@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# STEP 1: Symlink dotfiles
-echo "=================================================="
+printf "\n\n==================================================\n"
 echo "STEP 1:"
 echo "Symlinking your dotfiles to your home directory..."
 echo "=================================================="
@@ -28,12 +27,9 @@ ln -s -f ~/workspace/dotfiles/macOS/.zshrc ~/.zshrc
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc.plugins ~/.zshrc.plugins
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc.theme ~/.zshrc.theme
 
-echo
-echo "Symlinking complete!"
-echo
+printf "\nSymlinking complete!\n"
 
-# STEP 2: Install homebrew
-echo "=================================================="
+printf "\n\n==================================================\n"
 echo "STEP 2:"
 echo "homebrew setup..."
 echo "=================================================="
@@ -43,168 +39,97 @@ if [[ $? != 0 ]] ; then
     # Install Homebrew
     echo "Installing homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    echo "homebrew installation complete!"
+    printf "homebrew installation complete!\n"
 else
     echo "Updating homebrew..."
     brew update
-    echo "homebrew update complete!"
+    printf "homebrew update complete!\n"
 fi
-echo
 
 
-# STEP 3: Install homebrew formulae
-echo "=================================================="
+printf "\n\n==================================================\n"
 echo "STEP 3:"
 echo "Installing homebrew packages..."
 echo "=================================================="
+brew bundle -v
+printf "\nhomebrew packages installed!\n"
 
-brew bundle
 
-echo
-echo "homebrew packages installed!"
-echo
-
-# STEP 4: Install oh-my-zsh
-echo "=================================================="
+printf "\n\n==================================================\n"
 echo "STEP 4:"
 echo "oh-my-zsh setup..."
 echo "=================================================="
-
 if [ ! -d ~/.oh-my-zsh ]
 then
   echo "Downloading oh-my-zsh..."
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  echo "Download complete!"
+  printf "Download complete!\n"
 else
-  echo "oh-my-zsh already setup..."
+  printf "oh-my-zsh already setup...\n"
 fi
-echo
 
-# STEP 5: Install Custom oh-my-zsh themes
-echo "=================================================="
+
+printf "\n\n==================================================\n"
 echo "STEP 5:"
-echo "Install Custom themes for zsh"
-echo "=================================================="
-
-if [ ! -f ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme ]
-then
-  curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-  echo "Your zsh theme has been changed to Spaceship"
-else
-  echo "Spaceship already installed"
-fi
-echo
-
-if [ ! -f ~/.oh-my-zsh/custom/themes/powerlevel9k ]
-then
-  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-  echo "Powelevel9k installed"
-else
-  echo "Powelevel9k already installed"
-fi
-echo
-
-# STEP 6: Change default shell to zsh
-echo "=================================================="
-echo "STEP 6:"
 echo "Default shell to zsh..."
 echo "=================================================="
-
 if [ "$(echo $SHELL)" = "/bin/zsh" ]
 then
-  echo "Your default shell is already zsh"
+  printf "Your default shell is already zsh\n"
 else
   echo "Changing your default shell to zsh..."
   chsh -s /bin/zsh
-  echo "Your default shell is now zsh"
+  printf "Your default shell is now zsh\n"
 fi;
-echo
 
-# STEP 7: Create an empty .env and .zshrc.local files
-echo "=================================================="
-echo "STEP 7:"
+
+printf "\n\n==================================================\n"
+echo "STEP 6:"
 echo "Create a empty .env and .zshrc.local files"
 echo "=================================================="
-
 if [ ! -f ~/.env ]
 then
   echo "Creating an empty file to place your ENV variables..."
   touch ~/.env
-  echo "File created!"
+  printf "File created!\n"
 else
-  echo ".env file already present!"
+  printf ".env file already present!\n"
 fi
-echo
 
 if [ ! -f ~/.zshrc.local ]
 then
   echo "Creating an empty file to place your local zsh config..."
   touch ~/.zshrc.local
-  echo "File created!"
+  printf "File created!\n"
 else
-  echo ".zshrc.local file already present!"
+  printf ".zshrc.local file already present!\n"
 fi
-echo
 
-# STEP 8: Install Vundle package manager for vim
-echo "=================================================="
-echo "STEP 8:"
-echo "Install Vundle for vim"
+
+printf "\n\n==================================================\n"
+echo "STEP 7:"
+echo "Install vim-plug for neovim"
 echo "=================================================="
 
-if [ ! -d ~/.vim/bundle/Vundle.vim ]
+if [ ! -d ~/.config/nvim/autoload/plug.vim ]
 then
-  echo "Downloading Vundle..."
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  echo "Download complete!"
-  echo
+  echo "Downloading vim-plug..."
+  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  printf "Download complete!\n"
 
   echo "Installing vim plugins..."
-  vim +PluginInstall +qall
-  echo "Installation complete!"
+  vim +PlugInstall +qall
+  printf "Installation complete!\n"
 else
-  echo "Vundle installed!"
-  vim +PluginClean +PluginInstall +qall
-fi
-echo
-
-# STEP 9: Add custom fonts
-echo "=================================================="
-echo "STEP 9:"
-echo "Adding custom fonts to Font Book"
-echo "=================================================="
-
-if [ ! -f ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf ]
-then
-  echo "Adding Droid Sans Mono..."
-  sudo cp ~/workspace/dotfiles/fonts/Droid_Sans_Mono_for_Powerline.otf ~/Library/Fonts/Droid_Sans_Mono_for_Powerline.otf
+  echo "vim-plug installed!"
+  vim +PlugClean +PlugInstall +qall
+  echo
 fi
 
-if [ ! -f ~/Library/Fonts/FiraCode-Retina.ttf ]
-then
-  echo "Adding Fira Code..."
-  sudo cp ~/workspace/dotfiles/fonts/FiraCode-Retina.ttf ~/Library/Fonts/FiraCode-Retina.ttf
-fi
-
-if [ ! -f ~/Library/Fonts/Meslo_LG_L_DZ_Regular_Nerd_Font_Complete.otf ]
-then
-  echo "Adding Meslo (Nerd Font)..."
-  sudo cp ~/workspace/dotfiles/fonts/Meslo_LG_L_DZ_Regular_Nerd_Font_Complete.otf ~/Library/Fonts/Meslo_LG_L_DZ_Regular_Nerd_Font_Complete.otf
-fi
-
-if [ ! -f ~/Library/Fonts/Lato-Regular.ttf ]
-then
-  echo "Adding Lato..."
-  sudo cp ~/workspace/dotfiles/fonts/Lato-Regular.ttf ~/Library/Fonts/Lato-Regular.ttf
-fi
-
-echo "Please restart your terminal and select a font from the preferences of your favourite Terminal"
-echo
-
-# STEP 10: Setup rbenv
-echo "=================================================="
-echo "STEP 10:"
+printf "\n\n==================================================\n"
+echo "STEP 8:"
 echo "Setting up rbenv"
 echo "=================================================="
 
@@ -212,26 +137,7 @@ if [ -d ~/.rbenv ]
 then
   echo "Setting up rbenv..."
   rbenv init
-  echo
-  echo "Please restart your terminal"
+  printf "\nPlease restart your terminal\n"
 else
-  echo "rbenv already setup!"
+  printf "rbenv already setup!\n"
 fi
-echo
-
-# STEP 11: Install Tmux package manager tpm
-echo "=================================================="
-echo "STEP 11:"
-echo "Setting up Tmux package manager"
-echo "=================================================="
-
-if [ ! -d ~/.tmux/plugins/tpm ]
-then
-  echo "Downloading tpm..."
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  echo "Download complete!"
-  echo "Please start a tmux session and enter CTRL-A + I to install the packages"
-else
-  echo "tpm already installed!"
-fi
-echo
