@@ -1,32 +1,36 @@
 cask_args appdir: '/Applications'
+
 tap "homebrew/bundle"
-tap "homebrew/core"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "sambadevi/powerlevel9k"
+tap "homebrew/core"
+tap "homebrew/services"
 tap "teamookla/speedtest"
 
-# Packages
+brew "aws-iam-authenticator"
 brew "ctags"
 brew "curl"
+brew "docker-compose", link: false
 brew "fzf"
 brew "ghostscript"
 brew "go"
 brew "htop"
 brew "imagemagick"
 brew "jq"
-brew "kubectl"
+brew "kubernetes-cli"
 brew "n"
+brew "neovim"
 brew "postgresql"
 brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "redis"
 brew "speedtest-cli"
-brew "terraform"
+brew "starship"
+brew "terraform", link: false
+brew "tfenv"
 brew "the_silver_searcher"
 brew "tmux"
-brew "vim"
-brew "neovim"
+brew "tree"
 brew "wget"
 brew "yarn"
 brew "z"
@@ -34,18 +38,13 @@ brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
-# Fonts
+cask "docker"
 cask "font-fira-code"
+cask "font-firacode-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-nerd-font-mono"
-
-# Zsh Themes
-brew "powerlevel9k"
-brew "starship"
-
-# Applications
-# cask "1password"
-cask "docker"
 cask "google-chrome"
+cask "insomnia"
 cask "iterm2"
-# cask "slack"
+cask "spotify"
+cask "visual-studio-code"

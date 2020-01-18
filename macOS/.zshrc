@@ -8,11 +8,10 @@ export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/workspace/dotfiles/macOS"
 
 HIST_STAMPS="dd/mm/yyyy"
-HISTSIZE=500
-SAVEHIST=500
+HISTSIZE=5000
+SAVEHIST=5000
 DISABLE_AUTO_TITLE=true
 
-source $HOME/.env
 source $HOME/.zshrc.plugins
 # source $HOME/.zsh.theme
 source $ZSH/oh-my-zsh.sh

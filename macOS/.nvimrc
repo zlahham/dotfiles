@@ -30,7 +30,6 @@ set splitbelow              " split panes to below
 set splitright              " split panes to right
 set foldmethod=indent       " folding performance
 set foldlevelstart=999      " only auto-fold if file > 999 levels
-set autochdir               " changes the cwd to the directory of the current buffer whenever you switch buffers.
 set browsedir=current       " make the file browser always open the current directory.
 
 set rtp+=/usr/local/opt/fzf " list of dirs to be searched for these runtime files
@@ -61,6 +60,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-fugitive'                                     " git wrapper
   Plug 'airblade/vim-gitgutter'                                 " Show git diff on the left
   Plug 'scrooloose/nerdtree'                                    " better project tree
+  Plug 'ryanoasis/vim-devicons'                                 " dev icons
+  Plug 'pangloss/vim-javascript'                                " javaScript support
 call plug#end()
 
 colorscheme quantum
@@ -106,7 +107,12 @@ let NERDTreeMapActivateNode     = '<CR>'
 "                                Mappings
 " ---------------------------------------------------------------------
 
-nnoremap <C-p> :FZF<CR>
+" Use Esc to exit in Terminal mode
+tnoremap <Esc> <C-\><C-n>
+
+" CTRL P uses fzf
+" let dir = finddir('.git/..', expand('%:p:h').';')
+nnoremap <C-p> :GFiles<CR>
 
 " Access first character in line
 nmap 0 ^
@@ -161,3 +167,4 @@ nnoremap <Leader>O O<Esc>
 
 " NERDTreeFind
 nnoremap <silent> <Tab> :NERDTreeToggle<CR>
+nnoremap <silent> <Leader><Tab> :NERDTreeFind<CR>

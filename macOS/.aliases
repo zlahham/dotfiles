@@ -21,5 +21,9 @@ alias neovimconfig="vim ~/.config/nvim/init.vim"
 alias zshconfig="vim ~/.zshrc"
 alias dotfiles="vim ~/workspace/dotfiles/macOS/"
 
+alias rspec="bundle exec rspec"
+
 alias venv="source ~/workspace/venv/bin/activate"
 alias venv_create="python3 -m venv ~/workspace/venv"
+
+alias kc="kubectl"
