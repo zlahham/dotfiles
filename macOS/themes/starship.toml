@@ -1,0 +1,15 @@
+[aws]
+style = "bold blue"
+displayed_items = "region"
+disabled = true
+
+[package]
+disabled = true
+
+[terraform]
+show_version = true
+
+[time]
+disabled = false
+format = "🕙 %T"
+utc_time_offset = "+1"

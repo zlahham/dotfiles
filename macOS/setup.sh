@@ -25,7 +25,8 @@ ln -s -f ~/workspace/dotfiles/macOS/.vimrc.options ~/.vimrc.options
 # zsh related files:
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc ~/.zshrc
 ln -s -f ~/workspace/dotfiles/macOS/.zshrc.plugins ~/.zshrc.plugins
-ln -s -f ~/workspace/dotfiles/macOS/.zshrc.theme ~/.zshrc.theme
+ln -s -f ~/workspace/dotfiles/macOS/themes/.zshrc.theme ~/.zshrc.theme
+ln -s -f ~/workspace/dotfiles/macOS/themes/starship.toml ~/.config/starship.toml
 
 printf "\nSymlinking complete!\n"
 
