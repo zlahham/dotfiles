@@ -62,6 +62,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'scrooloose/nerdtree'                                    " better project tree
   Plug 'ryanoasis/vim-devicons'                                 " dev icons
   Plug 'pangloss/vim-javascript'                                " javaScript support
+  Plug 'hashivim/vim-terraform'                                 " terraform support
 call plug#end()
 
 colorscheme quantum
@@ -102,6 +103,11 @@ let NERDChristmasTree           = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeShowHidden          = 1
 let NERDTreeMapActivateNode     = '<CR>'
+
+" Terraform
+let g:terraform_align=1
+let g:terraform_remap_spacebar=1
+let g:terraform_fmt_on_save=1
 
 " ---------------------------------------------------------------------
 "                                Mappings

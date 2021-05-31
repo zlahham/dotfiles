@@ -3,7 +3,7 @@
 # ------------------------------------------------------------
 export TERM='xterm-256color'
 export LANG=en_GB.UTF-8
-export EDITOR="$(which vim)"
+export EDITOR="$(which nvim)"
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/workspace/dotfiles/macOS"
 
@@ -47,3 +47,11 @@ eval "$(rbenv init -)"
 
 # starship prompt
 eval "$(starship init zsh)"
+
+function iterm2_print_user_vars() {
+  iterm2_set_user_var kubecontext "⎈ $(kubectl config current-context)"
+  iterm2_set_user_var awsregion "☁️ $(aws configure get region)"
+}
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

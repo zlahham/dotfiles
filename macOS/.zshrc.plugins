@@ -4,6 +4,7 @@ plugins=(
   docker
   git
   kubectl
+  terraform
   tmux
   rails
   z

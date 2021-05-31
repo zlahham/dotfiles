@@ -25,6 +25,8 @@
   user = zlahham
 [push]
   default = simple
+[pull]
+  rebase = true
 [user]
   email = zaid@lahham.tech
   name = Zaid Lahham

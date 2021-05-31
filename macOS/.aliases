@@ -17,7 +17,7 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 alias vimconfig="vim ~/.vimrc"
-alias neovimconfig="vim ~/.config/nvim/init.vim"
+alias nvimconfig="vim ~/.config/nvim/init.vim"
 alias zshconfig="vim ~/.zshrc"
 alias dotfiles="vim ~/workspace/dotfiles/macOS/"
 
