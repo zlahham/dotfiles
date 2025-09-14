@@ -11,7 +11,7 @@
 [core]
   autocrlf = false
   safecrlf = true
-  editor = nvim
+  editor = vim
   excludesfile = ~/.gitignore_global
 [filter "lfs"]
   clean = git lfs clean %f
@@ -30,8 +30,10 @@
 [user]
   email = zaid@lahham.tech
   name = Zaid Lahham
-	signingkey = 32C89033DBBF5FFD
-[includeIf "gitdir:~/workspace/appearhere/**"]
-  path = ~/.gitconfig-appearhere
+  signingkey = 1CDB8C8925EDE39C
 [commit]
-	gpgsign = true
+  gpgsign = true
+[gpg]
+  program = /opt/homebrew/bin/gpg
+[includeIf "gitdir:/Users/zaidlahham/workspace/revie/"]
+  path = /Users/zaidlahham/workspace/revie/.gitconfig

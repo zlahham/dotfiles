@@ -27,3 +27,14 @@ alias venv="source ~/workspace/venv/bin/activate"
 alias venv_create="python3 -m venv ~/workspace/venv"
 
 alias kc="kubectl"
+
+# Git aliases
+alias g='git'
+alias ga='git add'
+alias gst='git status'
+alias gco='git checkout'
+alias gcm='git commit -m'
+alias gp='git push'
+alias gl='git pull'
+alias gd='git diff'
+alias gb='git branch'
