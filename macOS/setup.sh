@@ -28,6 +28,11 @@ ln -s -f ~/workspace/dotfiles/macOS/.zshrc.plugins ~/.zshrc.plugins
 ln -s -f ~/workspace/dotfiles/macOS/themes/.zshrc.theme ~/.zshrc.theme
 ln -s -f ~/workspace/dotfiles/macOS/themes/starship.toml ~/.config/starship.toml
 
+# Claude Code config:
+mkdir -p ~/.claude/scripts
+ln -s -f ~/workspace/dotfiles/macOS/claude/settings.json ~/.claude/settings.json
+ln -s -f ~/workspace/dotfiles/macOS/claude/scripts/statusline.py ~/.claude/scripts/statusline.py
+
 printf "\nSymlinking complete!\n"
 
 printf "\n\n==================================================\n"
