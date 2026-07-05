@@ -1,51 +1,39 @@
 cask_args appdir: '/Applications'
 
-tap "github/gh"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "neovim/neovim"
-tap "sambadevi/powerlevel9k"
+# Taps: none needed — homebrew/core and homebrew/cask are auto-tapped by modern
+# Homebrew, and the old cask-fonts / cask-versions taps were merged into cask.
 
-brew "aws-iam-authenticator"
-brew "circleci"
-brew "ctags"
+# --- CLI tools ---
+brew "asdf"                      # version manager (ruby, nodejs, ...) — replaces rbenv
+brew "awscli"
+brew "bat"                       # `cat` alias in .aliases
+brew "coreutils"
 brew "curl"
-brew "libyaml"
-brew "docker-compose", link: false
 brew "fzf"
+brew "gemini-cli"
 brew "gh"
-brew "ghostscript"
-brew "go"
 brew "htop"
 brew "jq"
-brew "kubernetes-cli"
+brew "libpq"                     # psql client (added to PATH in .zshrc)
+brew "libyaml"
 brew "neovim"
-brew "ruby-build"
-brew "rbenv"
+brew "pinentry-mac"              # GPG pinentry (GPG_TTY set in .zshrc)
 brew "reattach-to-user-namespace"
-brew "redis"
-brew "ruby"
-brew "starship"
-brew "terraform", link: false
-brew "tfenv"
-brew "tflint"
-brew "the_silver_searcher"
+brew "ripgrep"                   # neovim: fzf-lua live grep (\)
+brew "starship"                  # available prompt (not enabled by default)
 brew "tmux"
 brew "tree"
-brew "yarn"
-brew "z"
+brew "tree-sitter-cli"           # neovim: nvim-treesitter (main) builds parsers
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-brew "sambadevi/powerlevel9k/powerlevel9k"
+
+# --- Casks ---
+cask "claude-code"
+cask "codex"
+cask "copilot-cli"
 cask "font-fira-code"
-cask "font-firacode-nerd-font"
+cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
-cask "font-meslo-nerd-font-mono"
-cask "google-chrome"
-cask "insomnia"
-cask "iterm2"
+cask "font-meslo-lg-nerd-font"
+cask "warp"

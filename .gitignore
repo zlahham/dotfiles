@@ -1,0 +1,5 @@
+# Claude Code / agent working files
+tasks/
+
+# ruby-lsp workspace cache (created when ruby-lsp runs in the repo)
+.ruby-lsp/

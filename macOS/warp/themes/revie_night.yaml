@@ -1,0 +1,24 @@
+name: Revie Night
+accent: '#219F88'
+background: '#1a1a2e'
+foreground: '#b8c0cc'
+details: darker
+terminal_colors:
+  normal:
+    black:   '#1a1a2e'
+    red:     '#fca5a5'
+    green:   '#219F88'
+    yellow:  '#fcd34d'
+    blue:    '#93c5fd'
+    magenta: '#c084fc'
+    cyan:    '#5eecd0'
+    white:   '#b8c0cc'
+  bright:
+    black:   '#3a3a52'
+    red:     '#f87171'
+    green:   '#5eecd0'
+    yellow:  '#fde68a'
+    blue:    '#bfdbfe'
+    magenta: '#d8b4fe'
+    cyan:    '#86efac'
+    white:   '#ffffff'

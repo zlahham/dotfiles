@@ -1,19 +1,15 @@
 # ------------------------------------------------------------
-#                         oh-my-zsh
+#                         Shell
 # ------------------------------------------------------------
 export TERM='xterm-256color'
 export LANG=en_GB.UTF-8
 export EDITOR="$(which nvim)"
 export DOTFILES="$HOME/workspace/dotfiles/macOS"
 
-HIST_STAMPS="dd/mm/yyyy"
+HISTFILE="$HOME/.zsh_history"   # oh-my-zsh used to set this; keep history persistent
 HISTSIZE=5000
 SAVEHIST=5000
 DISABLE_AUTO_TITLE=true
-
-# source $HOME/.zshrc.plugins
-# source $HOME/.zsh.theme
-# source $ZSH/oh-my-zsh.sh
 
 # ------------------------------------------------------------
 #                         Aliases
@@ -63,3 +59,16 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.asdf/shims:$PATH"
 . $(brew --prefix asdf)/libexec/asdf.sh
+
+# ------------------------------------------------------------
+#                      Zsh plugins
+# ------------------------------------------------------------
+# autosuggestions + syntax-highlighting (brew). Guarded so a missing install
+# won't error. `brew --prefix` resolves /opt/homebrew (ARM) or /usr/local (Intel).
+# NOTE: syntax-highlighting must be sourced last.
+_brew_share="$(brew --prefix 2>/dev/null)/share"
+[ -f "$_brew_share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && \
+  source "$_brew_share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -f "$_brew_share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \
+  source "$_brew_share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+unset _brew_share

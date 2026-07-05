@@ -1,0 +1,12 @@
+# Warp Terminal User Preferences
+# Font Configuration
+font:
+  name: "FiraCode Nerd Font Mono"
+  size: 13
+  ligatures: true
+
+# Alternative font configuration if above doesn't work:
+# terminal_font:
+#   family: "FiraCode Nerd Font Mono"
+#   style: Regular
+#   size: 13
