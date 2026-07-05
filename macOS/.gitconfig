@@ -30,10 +30,12 @@
 [user]
   email = zaid@lahham.tech
   name = Zaid Lahham
-  signingkey = 1CDB8C8925EDE39C
+  signingkey = 5D15AD6B6905503B
 [commit]
   gpgsign = true
 [gpg]
   program = /opt/homebrew/bin/gpg
-[includeIf "gitdir:/Users/zaidlahham/workspace/revie/"]
-  path = /Users/zaidlahham/workspace/revie/.gitconfig
+[includeIf "gitdir:/Users/zaid/workspace/revie/"]
+  path = /Users/zaid/workspace/revie/.gitconfig
+[init]
+  defaultBranch = main

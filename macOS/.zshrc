@@ -4,7 +4,6 @@
 export TERM='xterm-256color'
 export LANG=en_GB.UTF-8
 export EDITOR="$(which nvim)"
-export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/workspace/dotfiles/macOS"
 
 HIST_STAMPS="dd/mm/yyyy"
@@ -48,38 +47,19 @@ source $HOME/.env
 #                      User Configuration
 # ------------------------------------------------------------
 
-export GPG_TTY=$(tty)
 
 bindkey "\e\eOD" backward-word
 bindkey "\e\eOC" forward-word
 
-# Local provision file for zsh
 source $HOME/.zshrc.local
 
 # Do not share history between tmux windows
 setopt noincappendhistory
 setopt nosharehistory
 
-# rbenv
-# eval "$(rbenv init -)"
-
-# starship prompt
-# eval "$(starship init zsh)"
-
-function iterm2_print_user_vars() {
-  iterm2_set_user_var kubecontext "⎈ $(kubectl config current-context)"
-  iterm2_set_user_var awsregion "☁️ $(aws configure get region)"
-}
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export PATH="/Users/zaidlahham/.local/bin:$PATH"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
-
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export GPG_TTY=$(tty)
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/.asdf/shims:$PATH"
+. $(brew --prefix asdf)/libexec/asdf.sh
