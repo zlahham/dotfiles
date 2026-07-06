@@ -11,7 +11,7 @@ return {
         auto_trigger = true,             -- show grey ghost text as you type
         hide_during_completion = true,   -- yield to the blink.cmp popup, no fighting
         keymap = {
-          accept = "<C-l>",              -- accept suggestion (insert mode; <Tab> is the tree)
+          accept = "<C-l>",              -- direct accept; <Tab> also accepts (unified in blink.cmp)
           next = "<M-]>",
           prev = "<M-[>",
           dismiss = "<C-]>",

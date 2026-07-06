@@ -7,7 +7,32 @@ return {
     version = "1.*",
     event = "InsertEnter",
     opts = {
-      keymap = { preset = "default" }, -- C-y accept, C-n/C-p select, C-space menu
+      keymap = {
+        preset = "default", -- C-y accept, C-n/C-p select, C-space menu (all still work)
+        -- Unified accept: one <Tab> accepts whatever suggestion is showing.
+        ["<Tab>"] = {
+          function(cmp) -- 1. blink menu open -> accept the selected item
+            if cmp.is_visible() then return cmp.select_and_accept() end
+          end,
+          function() -- 2. Copilot ghost text showing -> accept it
+            local ok, sug = pcall(require, "copilot.suggestion")
+            if ok and sug.is_visible() then sug.accept(); return true end
+          end,
+          function(cmp) -- 3. inside a snippet -> jump to next placeholder
+            if cmp.snippet_active() then return cmp.snippet_forward() end
+          end,
+          "fallback", -- 4. otherwise a normal Tab (indent)
+        },
+        ["<S-Tab>"] = {
+          function(cmp)
+            if cmp.is_visible() then return cmp.select_prev() end
+          end,
+          function(cmp)
+            if cmp.snippet_active() then return cmp.snippet_backward() end
+          end,
+          "fallback",
+        },
+      },
       appearance = { nerd_font_variant = "mono" },
       completion = { documentation = { auto_show = true, auto_show_delay_ms = 200 } },
       sources = { default = { "lsp", "path", "snippets", "buffer" } },
