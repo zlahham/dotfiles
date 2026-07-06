@@ -17,22 +17,6 @@ DISABLE_AUTO_TITLE=true
 
 source $HOME/.aliases
 
-create_pr() {
-  base_branch="${1:-main}"
-  branch=$(git rev-parse --abbrev-ref HEAD)
-  pr_title=$(git log -1 --pretty=%s)
-  pr_body=$(git log -1 --pretty=%b)
-
-  git push -u origin "$branch" || return 1
-
-  gh pr create \
-    --title "$pr_title" \
-    --body "$pr_body" \
-    --base "$base_branch" \
-    --head "$branch" \
-    --draft
-}
-
 # ------------------------------------------------------------
 #                        ENV VARIABLES
 # ------------------------------------------------------------
@@ -67,6 +51,17 @@ export PATH=$PATH:$GOPATH/bin
 # asdf.sh to source anymore. Completions (optional):
 export PATH="$HOME/.asdf/shims:$PATH"
 [ -d "$HOME/.asdf/completions" ] && fpath=("$HOME/.asdf/completions" $fpath)
+
+# ------------------------------------------------------------
+#                      Completion
+# ------------------------------------------------------------
+# oh-my-zsh used to run compinit; do it ourselves now. Must run before the
+# plugins below. -C skips the slow security audit (brew dirs are trusted).
+autoload -Uz compinit && compinit -C
+zmodload zsh/complist
+zstyle ':completion:*' menu select                      # arrow-key selectable menu
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case-insensitive
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # colourise the menu
 
 # ------------------------------------------------------------
 #                      Zsh plugins
