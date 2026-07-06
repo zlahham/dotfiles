@@ -1,6 +1,37 @@
+# Starship prompt — minimal, Warp-like (directory + git). tokyonight palette.
+# Shown in tmux / iTerm / ssh. In Warp it's inert (Warp renders its own prompt).
+
+add_newline = false
+
+format = """
+$directory$git_branch$git_status$character"""
+
+[directory]
+style = "bold #7dcfff"
+truncation_length = 3
+truncate_to_repo = false
+read_only = " "
+format = "[ $path ]($style)"
+
+[git_branch]
+symbol = " "
+style = "bold #9ece6a"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "#e0af68"
+format = "([$all_status$ahead_behind]($style) )"
+
+[character]
+success_symbol = "[❯](bold #9ece6a)"
+error_symbol = "[❯](bold #f7768e)"
+
+[cmd_duration]
+min_time = 2000
+style = "#565f89"
+format = "[ $duration]($style) "
+
 [aws]
-style = "bold blue"
-displayed_items = "region"
 disabled = true
 
 [package]
@@ -8,8 +39,3 @@ disabled = true
 
 [terraform]
 show_version = true
-
-[time]
-disabled = false
-format = "🕙 %T"
-utc_time_offset = "+1"

@@ -5,20 +5,15 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps insid
 alias ..='cd ../'                           # Go back 1 directory levels
 
 alias cat='bat'
-alias ctags="/usr/local/bin/ctags"
 
 alias path='echo -e ${PATH//:/\\n}'         # path: Echo all executable Paths
 alias ports="lsof -i -P | grep -i \"listen\""
-
-alias pg_start="pg_ctl -D /usr/local/var/postgres start"
-alias pg_stop="pg_ctl -D /usr/local/var/postgres stop"
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-alias vimconfig="vim ~/.vimrc"
-alias nvimconfig="vim ~/.config/nvim/init.vim"
+alias nvimconfig="vim ~/.config/nvim/init.lua"
 alias zshconfig="vim ~/.zshrc"
 alias dotfiles="vim ~/workspace/dotfiles/macOS/"
 
