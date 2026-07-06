@@ -60,20 +60,33 @@ opt.updatetime = 250           -- snappier CursorHold / gitsigns
 -- prompts, etc. (those have a non-empty 'buftype').
 local ws = vim.api.nvim_create_augroup("TrailingWhitespace", { clear = true })
 
-local function is_real_file()
-  return vim.bo.buftype == "" and vim.bo.filetype ~= ""
+vim.api.nvim_set_hl(0, "TrailingWhitespace", { bg = "#ff5555" })
+
+local function is_real_file(buf)
+  return vim.bo[buf].buftype == "" and vim.bo[buf].filetype ~= ""
 end
 
--- Remove only OUR matches in the current window (never touch other plugins').
-local function clear_ws_match()
+-- Delete only OUR matches in the currently-focused window.
+local function clear_ws_here()
   for _, m in ipairs(vim.fn.getmatches()) do
-    if m.group == "TrailingWhitespace" then
-      vim.fn.matchdelete(m.id)
-    end
+    if m.group == "TrailingWhitespace" then vim.fn.matchdelete(m.id) end
   end
 end
 
-vim.api.nvim_set_hl(0, "TrailingWhitespace", { bg = "#ff5555" })
+-- matchadd is window-local, and a new split (e.g. the neo-tree sidebar) can
+-- inherit a stale match from the window it was split off — that's what paints
+-- neo-tree's right-aligned padding red. So sync EVERY window: clear ours
+-- everywhere, then re-add only to real-file windows. Idempotent.
+local function sync_ws()
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    vim.api.nvim_win_call(win, function()
+      clear_ws_here()
+      if is_real_file(vim.api.nvim_win_get_buf(win)) then
+        vim.fn.matchadd("TrailingWhitespace", [[\s\+$]])
+      end
+    end)
+  end
+end
 
 -- Trim on save (real files only).
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -86,20 +99,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Highlight, guarded + de-duplicated (clear ours first so matches don't stack).
-vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType", "InsertLeave" }, {
+-- Any window/buffer change can create or reshuffle splits — resync all of them.
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter", "FileType", "InsertLeave" }, {
   group = ws,
-  callback = function()
-    clear_ws_match()
-    if is_real_file() then
-      vim.fn.matchadd("TrailingWhitespace", [[\s\+$]])
-    end
-  end,
+  callback = sync_ws,
 })
+
 -- Hide while typing so it doesn't flag the space you're about to fill.
 vim.api.nvim_create_autocmd("InsertEnter", {
   group = ws,
-  callback = clear_ws_match,
+  callback = clear_ws_here,
 })
 
 -- Briefly highlight yanked text (nice sensible default)
