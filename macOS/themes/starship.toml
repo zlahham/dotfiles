@@ -1,35 +1,68 @@
-# Starship prompt — minimal, Warp-like (directory + git). tokyonight palette.
-# Shown in tmux / iTerm / ssh. In Warp it's inert (Warp renders its own prompt).
+# Starship prompt — clean & minimal, Warp-inspired (icons + colour, no pills).
+# Language modules are conditional: each shows ONLY when its project marker is
+# present in the dir (Gemfile -> ruby, go.mod -> go, package.json -> node).
+# Glyphs are Nerd Font (you're on FiraCode Nerd Font Mono). tokyonight palette.
+# Shown in tmux / iTerm / ssh; inert in Warp (it draws its own prompt).
 
-add_newline = false
+# Blank line above each prompt for breathing room (like Warp's block spacing).
+add_newline = true
 
+# Segments on line 1, cursor on line 2.
 format = """
-$directory$git_branch$git_status$character"""
+$directory$git_branch$git_status$nodejs$ruby$golang$cmd_duration
+$character"""
 
 [directory]
-style = "bold #7dcfff"
+style = "#7dcfff"
+read_only = " "
+read_only_style = "#f7768e"
 truncation_length = 3
 truncate_to_repo = false
-read_only = " "
-format = "[ $path ]($style)"
+format = "[  $path]($style)   "
 
 [git_branch]
-symbol = " "
-style = "bold #9ece6a"
-format = "[$symbol$branch]($style) "
+symbol = " "
+style = "#9ece6a"
+truncation_length = 10          # long branch names get cut...
+truncation_symbol = "…"     # ...with a trailing ellipsis
+format = "[$symbol$branch]($style)   "
 
 [git_status]
 style = "#e0af68"
-format = "([$all_status$ahead_behind]($style) )"
+format = "([$all_status$ahead_behind]($style)   )"
 
-[character]
-success_symbol = "[❯](bold #9ece6a)"
-error_symbol = "[❯](bold #f7768e)"
+# --- Language versions: conditional on a real project marker in the dir ------
+[nodejs]
+symbol = " "
+style = "#9ece6a"
+detect_files = ["package.json", ".nvmrc", ".node-version"]
+detect_folders = []          # don't trigger on a stray node_modules/ (e.g. a Rails app)
+detect_extensions = []       # ...or on loose .js/.ts files
+format = "[$symbol$version]($style)   "
+
+[ruby]
+symbol = " "
+style = "#f7768e"
+detect_files = ["Gemfile"]   # only a real ruby project, not a stray .ruby-version
+detect_folders = []
+detect_extensions = []
+detect_variables = []
+format = "[$symbol$version]($style)   "
+
+[golang]
+symbol = " "
+style = "#7dcfff"
+format = "[$symbol$version]($style)   "
+# -----------------------------------------------------------------------------
 
 [cmd_duration]
 min_time = 2000
 style = "#565f89"
-format = "[ $duration]($style) "
+format = "[ $duration]($style)   "
+
+[character]
+success_symbol = "[❯](bold #9ece6a)"
+error_symbol = "[❯](bold #f7768e)"
 
 [aws]
 disabled = true
