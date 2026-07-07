@@ -94,8 +94,10 @@ if [ "$DO_LINKS" = 1 ]; then
   # neovim: the whole config dir is symlinked (init.lua + lua/plugins/*).
   link "$MAC/nvim"              "$HOME/.config/nvim"
 
-  # zsh (no oh-my-zsh; plugins are sourced directly from .zshrc)
+  # zsh (no oh-my-zsh). .zshrc is a thin loader; the real config is the whole
+  # zsh/ dir of numbered fragments, symlinked like nvim/.
   link "$MAC/.zshrc"               "$HOME/.zshrc"
+  link "$MAC/zsh"                  "$HOME/.config/zsh"
   link "$MAC/themes/starship.toml" "$HOME/.config/starship.toml"
 
   # Warp terminal config
