@@ -52,6 +52,16 @@ opt.foldlevelstart = 99
 opt.signcolumn = "yes"         -- always show gutter (gitsigns/diagnostics, no jitter)
 opt.updatetime = 250           -- snappier CursorHold / gitsigns
 
+-- Filetype detection for extensionless shell dotfiles nvim doesn't know by
+-- name (e.g. `.aliases`). Without a filetype, the treesitter FileType autocmd
+-- in ui.lua never fires, so the buffer gets zero highlighting. `sh` routes to
+-- the installed bash parser.
+vim.filetype.add({
+  filename = {
+    [".aliases"] = "sh",
+  },
+})
+
 -- ---------------------------------------------------------------------
 -- 3. Native autocmds  (replace plugins with a few lines of config)
 -- ---------------------------------------------------------------------
