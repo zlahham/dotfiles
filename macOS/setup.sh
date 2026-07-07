@@ -85,13 +85,10 @@ load_brew
 if [ "$DO_LINKS" = 1 ]; then
   banner 1 "Symlinking your dotfiles to your home directory..."
   link "$MAC/.aliases"          "$HOME/.aliases"
-  link "$MAC/.ctags"            "$HOME/.ctags"
   link "$MAC/.gemrc"            "$HOME/.gemrc"
   link "$MAC/.gitconfig"        "$HOME/.gitconfig"
   link "$MAC/.gitignore_global" "$HOME/.gitignore_global"
-  link "$MAC/.pryrc"            "$HOME/.pryrc"
   link "$MAC/.rspec"            "$HOME/.rspec"
-  link "$MAC/.rubocop.yml"      "$HOME/.rubocop.yml"
   link "$MAC/.tmux.conf"        "$HOME/.tmux.conf"
 
   # neovim: the whole config dir is symlinked (init.lua + lua/plugins/*).
