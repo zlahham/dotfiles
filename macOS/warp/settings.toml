@@ -43,6 +43,7 @@ enabled = true
 compact_subtitle = "working_directory"
 display_granularity = "tabs"
 primary_info = "command"
+tab_item_mode = "focused_session"
 
 [appearance.full_screen_apps]
 alt_screen_padding = { custom = { uniform_padding = 0.0 } }
