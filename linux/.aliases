@@ -1,7 +1,7 @@
 alias ls='ls -GFh --color=auto'
 alias ll='ls -lAFh --color=auto'            # Long ls implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
-cd() { builtin cd "$@"; ls; }               # Always list directory contents upon 'cd'
+cd() { builtin cd "$@" || return; case $- in *i*) ls;; esac; }  # auto-ls on 'cd', interactive shells only
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
 autoload -U zmv
 alias mmv='noglob zmv -W'

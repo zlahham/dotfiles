@@ -1,6 +1,6 @@
 alias ls='ls -GFh'
 alias ll='ls -lAFh'                         # Long ls implementation
-cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+cd() { builtin cd "$@" || return; case $- in *i*) ll;; esac; }  # auto-ll on 'cd', interactive shells only
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
 alias ..='cd ../'                           # Go back 1 directory levels
 
@@ -34,3 +34,21 @@ alias gp='git push'
 alias gl='git pull'
 alias gd='git diff'
 alias gb='git branch'
+
+create_pr() {
+  base_branch="${1:-main}"
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  pr_title=$(git log -1 --pretty=%s)
+  pr_body=$(git log -1 --pretty=%b)
+
+  git push -u origin "$branch" || return 1
+
+  gh pr create \
+    --title "$pr_title" \
+    --body "$pr_body" \
+    --base "$base_branch" \
+    --head "$branch" \
+    --assignee zlahham \
+    --draft
+}
+
