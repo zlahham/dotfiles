@@ -10,21 +10,21 @@ export EDITOR="$(which nvim)"
 export DOTFILES="$HOME/workspace/dotfiles/macOS"
 
 HISTFILE="$HOME/.zsh_history"   # oh-my-zsh used to set this; keep history persistent
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=50000
+SAVEHIST=50000
 DISABLE_AUTO_TITLE=true
 
 # ------------------------------------------------------------
 #                         Aliases
 # ------------------------------------------------------------
 
-source $HOME/.aliases
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 # ------------------------------------------------------------
 #                        ENV VARIABLES
 # ------------------------------------------------------------
 
-source $HOME/.env
+[ -f "$HOME/.env" ] && source "$HOME/.env"
 
 # ------------------------------------------------------------
 #                      User Configuration
@@ -40,11 +40,16 @@ bindkey "\ef"     forward-word        # Esc-f fallback
 bindkey "^[^?"    backward-kill-word  # Alt+Backspace
 bindkey "\e[3;3~" kill-word           # Alt+Delete (forward)
 
-source $HOME/.zshrc.local
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
 # Do not share history between tmux windows
 setopt noincappendhistory
 setopt nosharehistory
+# Keep history lean and useful (dedupe, drop leading-space cmds, timestamp)
+setopt hist_ignore_all_dups   # a new dup drops the older copy
+setopt hist_ignore_space      # a leading space keeps a command out of history
+setopt hist_reduce_blanks     # collapse superfluous whitespace
+setopt extended_history       # record start time + duration per entry
 
 export GPG_TTY=$(tty)
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
@@ -77,6 +82,19 @@ _brew_share="/opt/homebrew/share"
 [ -f "$_brew_share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \
   source "$_brew_share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 unset _brew_share
+
+# ------------------------------------------------------------
+#                      fzf (fuzzy finder)
+# ------------------------------------------------------------
+# Ctrl-R fuzzy history, Ctrl-T fuzzy file insert, Alt-C fuzzy cd. Sourced
+# after compinit so fzf's completion registers. ripgrep backs the file lists
+# (honours .gitignore, includes hidden, skips .git).
+if command -v fzf >/dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS='--height 40% --layout reverse --border'
+  source <(fzf --zsh)
+fi
 
 # ------------------------------------------------------------
 #                      Prompt (starship)
