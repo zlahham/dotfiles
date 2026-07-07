@@ -140,11 +140,8 @@ map("n", "0", "^", { remap = true })
 -- Toggle relative numbers
 map("n", "<C-n>", ":set rnu!<CR>", { silent = true })
 
--- Move between splits
-map("", "<C-h>", "<C-W>h")
-map("", "<C-j>", "<C-W>j")
-map("", "<C-k>", "<C-W>k")
-map("", "<C-l>", "<C-w>l")
+-- Move between splits: <C-h/j/k/l> — provided by vim-tmux-navigator (see
+-- lua/plugins/editor.lua) so the same keys also cross into tmux panes.
 
 -- Exit insert mode with jk / kj
 map("i", "jk", "<esc>")

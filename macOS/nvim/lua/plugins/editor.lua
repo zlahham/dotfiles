@@ -83,4 +83,19 @@ return {
     event = "InsertEnter",
     config = true,
   },
+
+  -- Seamless split/pane navigation: <C-h/j/k/l> moves between nvim splits AND
+  -- tmux panes transparently (needs the matching tmux-side plugin in
+  -- .tmux.conf). Replaces the plain <C-W>hjkl maps that used to live in
+  -- init.lua. In tmux, use <prefix> C-l to clear the screen (C-l is nav now).
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = { "TmuxNavigateLeft", "TmuxNavigateDown", "TmuxNavigateUp", "TmuxNavigateRight" },
+    keys = {
+      { "<C-h>", "<cmd>TmuxNavigateLeft<cr>",  desc = "Nav split/pane left" },
+      { "<C-j>", "<cmd>TmuxNavigateDown<cr>",  desc = "Nav split/pane down" },
+      { "<C-k>", "<cmd>TmuxNavigateUp<cr>",    desc = "Nav split/pane up" },
+      { "<C-l>", "<cmd>TmuxNavigateRight<cr>", desc = "Nav split/pane right" },
+    },
+  },
 }
