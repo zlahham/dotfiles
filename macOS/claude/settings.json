@@ -16,5 +16,6 @@
       }
     }
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "preferredNotifChannel": "terminal_bell"
 }
