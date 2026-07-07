@@ -35,6 +35,8 @@ alias gl='git pull'
 alias gd='git diff'
 alias gb='git branch'
 
+alias cc='claude'
+
 create_pr() {
   base_branch="${1:-main}"
   branch=$(git rev-parse --abbrev-ref HEAD)

@@ -1,5 +1,5 @@
 [notifications]
-toast_duration_secs = 8
+toast_duration_secs = 15
 
 [notifications.preferences]
 is_agent_task_completed_enabled = true
