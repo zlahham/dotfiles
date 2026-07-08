@@ -49,6 +49,12 @@ order — step by 10 so a new concern slots in without renumbering. Order that m
 before `50-plugins`/`60-fzf`, syntax-highlighting last within `50-plugins`, `99-local` (machine
 overrides) last of all. Edit a fragment, not `.zshrc`.
 
+**Where functions go** (location = coupling, then platform scope): a function bound to one tool lives
+in that tool's fragment (e.g. `rgv` in `60-fzf.zsh`). A general, standalone helper (`create_pr`, `mcd`,
+the `cd` override) lives in `.aliases`, because that's the one shell file **shared with the `linux/`
+tree** — keeping it there keeps the helper cross-platform. `.aliases` therefore holds simple aliases
+*and* general functions by design; feature-specific functions do not go there.
+
 ## Applying / testing changes
 
 ```sh
