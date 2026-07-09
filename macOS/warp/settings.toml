@@ -72,7 +72,9 @@ alias_expansion_enabled = true
 honor_ps1 = false
 
 [terminal.input.extra_meta_keys]
-left_alt = true
+# left_alt stays false so left-Option composes special chars (e.g. British
+# layout: Option+3 = #). Making it Meta breaks that in the shell and vim.
+left_alt = false
 right_alt = false
 
 [agents]
