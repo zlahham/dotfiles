@@ -172,6 +172,12 @@ map("x", "//", "gc", { remap = true })
 map("n", "<Leader>o", "o<Esc>")
 map("n", "<Leader>O", "O<Esc>")
 
+-- Format with = via conform's formatexpr, like the classic indent operator.
+-- `=` in visual mode formats the selection; `==` formats the current line.
+-- `=` with a motion (=ap, =G) still does Vim's built-in reindent.
+map("x", "=", "gq", { remap = true, desc = "Format selection" })
+map("n", "==", "gqq", { remap = true, desc = "Format line" })
+
 -- Diagnostics (LSP): jump + view
 map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Prev diagnostic" })
 map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "Next diagnostic" })
