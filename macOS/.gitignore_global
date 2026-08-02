@@ -18,3 +18,5 @@ tags
 
 # Rake File
 .rakeTasks
+
+**/.claude/settings.local.json

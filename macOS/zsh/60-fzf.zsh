@@ -12,7 +12,7 @@ if command -v fzf >/dev/null; then
   # (fzf-lua live_grep). Type to grep file *contents* live; Enter opens the
   # match in $EDITOR at the right line. Bound to Ctrl-G ("grep"); also `rgv`.
   rgv() {
-    local rg="rg --column --line-number --no-heading --color=always --smart-case --hidden --glob !.git"
+    local rg="rg --column --line-number --no-heading --color=always --smart-case --hidden --glob !.git --sort path"
     local out
     out=$(: | fzf --ansi --disabled --query "${*:-}" \
       --bind "start:reload:$rg {q} || true" \

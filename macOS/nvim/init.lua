@@ -156,6 +156,12 @@ map("", "<leader>#", "#<C-O>:%s///gn<CR>")
 -- Clear search highlight
 map("", "<leader><CR>", ":noh<CR>", { silent = true })
 
+-- Jump forward in the jumplist. In a terminal <C-i> == <Tab>, and <Tab> is
+-- bound to the file tree (see editor.lua), so <C-i> is unavailable. Pair it
+-- with <C-o> (jump back) via <C-g> — native <C-g> only prints file info, which
+-- the statusline already shows.
+map("n", "<C-g>", "<C-i>", { desc = "Jump forward" })
+
 -- Tabs
 map("", "<leader>tn", ":tabnew<cr>")
 map("", "<leader>to", ":tabonly<cr>")

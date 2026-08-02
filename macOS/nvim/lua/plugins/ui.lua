@@ -23,6 +23,14 @@ return {
         globalstatus = true,
         icons_enabled = true,
       },
+      -- Show the file's path relative to cwd, not just its tail. The tabline up
+      -- top pathshortens to `a/g/a/o/d/base.rb`; the statusline keeps the full
+      -- path readable — and this is what makes the <C-g> → jump-forward remap's
+      -- rationale in init.lua ("the statusline already shows it") actually true.
+      -- Overriding only lualine_c leaves the other sections on their defaults.
+      sections = {
+        lualine_c = { { "filename", path = 1 } },
+      },
     },
   },
 

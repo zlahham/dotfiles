@@ -5,6 +5,12 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "FzfLua",
+    -- Persist query history to disk, one file per picker. Inside any picker,
+    -- <C-p>/<C-n> then walk previous/next past queries — and it survives
+    -- restarts, so a search you ran before is one keystroke away, not a retype.
+    init = function()
+      vim.g.fzf_history_dir = vim.fn.stdpath("data") .. "/fzf-history"
+    end,
     keys = {
       -- Files: tracked AND untracked (fd respects .gitignore, so no node_modules
       -- noise). Inside the picker, <C-g> toggles ignored files on/off.
@@ -15,11 +21,25 @@ return {
         function() require("fzf-lua").files({ no_ignore = true, hidden = true }) end,
         desc = "Find files (incl. ignored/hidden)",
       },
-      { "\\", function() require("fzf-lua").live_grep() end, desc = "Live grep" },
+      -- Live grep that RESUMES: reopens with the last query + results, since
+      -- fzf-lua closes the picker whenever you open a result (e.g. <C-t> = new
+      -- tab). So tabbing to a match is never a dead end — `\` picks the search
+      -- right back up. To start a fresh search, <C-u> clears the query first;
+      -- <C-p>/<C-n> walk older queries.
+      { "\\", function() require("fzf-lua").live_grep({ resume = true }) end, desc = "Live grep (resume)" },
       { "<leader>b", function() require("fzf-lua").buffers() end, desc = "Buffers" },
     },
     opts = function()
       return {
+        -- --history rebinds fzf's <C-p>/<C-n> to query history; keep list
+        -- navigation on <C-j>/<C-k> (the arrow keys still work too).
+        keymap = { fzf = { ["ctrl-j"] = "down", ["ctrl-k"] = "up" } },
+        grep = {
+          -- Sort matches by file path (app/… before spec/…), like the
+          -- filetree. --sort=path forces rg single-threaded — fine here.
+          rg_opts = "--column --line-number --no-heading --color=always --smart-case "
+            .. "--max-columns=4096 --sort=path -e",
+        },
         files = {
           -- <C-g> inside the files picker toggles .gitignore on/off live
           actions = { ["ctrl-g"] = require("fzf-lua").actions.toggle_ignore },
