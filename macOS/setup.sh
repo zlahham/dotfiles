@@ -192,7 +192,7 @@ if [ "$DO_ASDF" = 1 ]; then
     printf "\nasdf plugins ready. Install a runtime, e.g.:\n"
     printf "  asdf install ruby latest && asdf set -u ruby latest\n"
     printf "  gem install ruby-lsp    # enables the neovim ruby LSP\n"
-    printf "  gem install tmuxinator  # declarative tmux sessions (tup)\n"
+    printf "  gem install tmuxinator  # declarative tmux sessions (tmux-up)\n"
     printf "  asdf reshim ruby        # after any gem that installs a binary\n"
   else
     printf "asdf not found — ensure 'brew \"asdf\"' is in the Brewfile, then restart your shell.\n"

@@ -79,7 +79,7 @@ not in the tracked dotfiles.
   `~/.config/tmuxinator/<name>.yml` (`name` + `root` + a single window). These are **not tracked** —
   which repos exist differs per machine — so they get the `~/.env` / `~/.zshrc.local` treatment:
   `setup.sh` creates the dir empty and nothing is symlinked into it. What *is* tracked is the tooling
-  in `zsh/65-tmux.zsh`: `tup` starts every project detached and attaches once, because
+  in `zsh/65-tmux.zsh`: `tmux-up` starts every project detached and attaches once, because
   `tmuxinator start` takes only a single project. It skips sessions already running by matching the
   project filename to the session name, so keep those equal.
 - **tmuxinator is a gem, not a brew formula**: `gem install tmuxinator` on the asdf ruby. The brew
@@ -89,7 +89,7 @@ not in the tracked dotfiles.
   command disappears (`65-tmux.zsh` guards on this and returns quietly).
 - **`tmux-continuum` overlaps with the above**: `@continuum-restore` replays its own 15-minute
   snapshot on server start, so a cold boot restores whatever was last open, not just the declared
-  set. The two coexist (`tup` skips what's already running), but they are not the same source of truth.
+  set. The two coexist (`tmux-up` skips what's already running), but they are not the same source of truth.
 - **Claude Code config is itself a dotfile**: `macOS/claude/settings.json` and
   `macOS/claude/scripts/statusline.py` symlink into `~/.claude/`. Editing Claude Code settings for this
   machine means editing those tracked files.

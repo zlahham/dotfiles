@@ -6,7 +6,7 @@
 # creates the empty dir, same treatment as ~/.env and ~/.zshrc.local.
 #
 #   tmuxinator start <name>   one session, attach
-#   tup                       every session, attach once
+#   tmux-up                   every session, attach once
 #
 # tmuxinator comes from `gem install tmuxinator` on the asdf ruby, not brew —
 # the brew formula hard-depends on brew's own ruby. That means it lives in the
@@ -20,7 +20,7 @@ command -v tmuxinator >/dev/null 2>&1 || return
 # tmuxinator 3.4 ships only the `tmuxinator` binary, not the `mux` short form.
 alias mux='tmuxinator'
 
-# tup [project...] — bring up every tmuxinator project (or only the named
+# tmux-up [project...] — bring up every tmuxinator project (or only the named
 # ones) and attach.
 #
 # `tmuxinator start` takes a single project and attaches to it, so there is no
@@ -29,8 +29,8 @@ alias mux='tmuxinator'
 # re-running is a no-op — safe from a cold boot or from inside tmux.
 #
 # Session name is assumed to match the project filename, which is the
-# convention every file in macOS/tmuxinator/ follows.
-tup() {
+# convention every file in ~/.config/tmuxinator/ follows.
+tmux-up() {
   local project
   local -a projects
   if (( $# )); then
@@ -41,15 +41,15 @@ tup() {
 
   # Fresh machine: setup.sh made the dir but there are no projects in it yet.
   if (( ! ${#projects} )); then
-    print -u2 "tup: no projects in ~/.config/tmuxinator — create one with 'tmuxinator new <name>'"
+    print -u2 "tmux-up: no projects in ~/.config/tmuxinator — create one with 'tmuxinator new <name>'"
     return 1
   fi
 
   for project in $projects; do
     if tmux has-session -t "=$project" 2>/dev/null; then
-      print "tup: $project already running"
+      print "tmux-up: $project already running"
     elif ! tmuxinator start "$project" --no-attach; then
-      print -u2 "tup: failed to start $project"
+      print -u2 "tmux-up: failed to start $project"
     fi
   done
 
@@ -57,5 +57,5 @@ tup() {
   [[ -n $TMUX ]] || tmux attach
 }
 
-_tup() { compadd -- ${(f)"$(tmuxinator completions start)"} }
-compdef _tup tup
+_tmux_up() { compadd -- ${(f)"$(tmuxinator completions start)"} }
+compdef _tmux_up tmux-up
