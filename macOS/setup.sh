@@ -91,6 +91,10 @@ if [ "$DO_LINKS" = 1 ]; then
   link "$MAC/.rspec"            "$HOME/.rspec"
   link "$MAC/.tmux.conf"        "$HOME/.tmux.conf"
 
+  # tmuxinator: one project file per tmux session. Whole dir is symlinked, so
+  # adding a session is just adding a .yml — no setup.sh change needed.
+  link "$MAC/tmuxinator"        "$HOME/.config/tmuxinator"
+
   # neovim: the whole config dir is symlinked (init.lua + lua/plugins/*).
   link "$MAC/nvim"              "$HOME/.config/nvim"
 

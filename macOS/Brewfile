@@ -21,6 +21,7 @@ brew "pinentry-mac"              # GPG pinentry (GPG_TTY set in .zshrc)
 brew "ripgrep"                   # neovim: fzf-lua live grep (\)
 brew "starship"                  # available prompt (not enabled by default)
 brew "tmux"
+brew "tmuxinator"                # declarative tmux sessions (macOS/tmuxinator/*.yml)
 brew "tree"
 brew "tree-sitter-cli"           # neovim: nvim-treesitter (main) builds parsers
 brew "zsh"

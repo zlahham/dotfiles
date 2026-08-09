@@ -12,7 +12,8 @@ config file *is* the change. The only "run" action is applying the dotfiles via 
 Two self-contained, parallel trees — one per platform:
 
 - `macOS/` — actively maintained. Superset: also holds `claude/`, `themes/`,
-  `warp/` (Warp terminal config), `nvim/` (Lua config), and a `Brewfile`.
+  `warp/` (Warp terminal config), `nvim/` (Lua config), `tmuxinator/` (tmux session
+  definitions), and a `Brewfile`.
 - `linux/` — older, apt-based. Lacks the macOS-only extras above.
 - `fonts/` — Powerline / Nerd Font files copied into place by the Linux setup.
 
@@ -75,6 +76,14 @@ not in the tracked dotfiles.
 - **zsh**: `macOS/.aliases` aliases `vim`→`nvim`, `cat`→`bat`, plus a large git alias block; `cd` is
   overridden to auto-`ll`. `create_pr()` in `.aliases` opens a **draft** PR from the last commit's
   subject/body via `gh` (base defaults to `main`).
+- **tmux sessions are declarative**: `macOS/tmuxinator/<name>.yml` — one project file per session,
+  each a `name` + `root` + a single window. The **whole dir** is symlinked to `~/.config/tmuxinator`,
+  so adding a session means adding a `.yml` and nothing else (no `setup.sh` change). Session name is
+  assumed to match the filename — `tup` (in `zsh/65-tmux.zsh`) relies on that to skip sessions that
+  are already running. `tmuxinator start <name>` raises one; `tup` raises the lot and attaches once,
+  because `tmuxinator start` takes only a single project. Note `tmux-continuum` (`@continuum-restore`)
+  also restores sessions from its own snapshot on server start — the two coexist, but continuum will
+  bring back whatever was last open, not just the declared set.
 - **Claude Code config is itself a dotfile**: `macOS/claude/settings.json` and
   `macOS/claude/scripts/statusline.py` symlink into `~/.claude/`. Editing Claude Code settings for this
   machine means editing those tracked files.

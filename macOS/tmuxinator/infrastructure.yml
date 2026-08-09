@@ -1,0 +1,5 @@
+name: infrastructure
+root: ~/workspace/revie/infrastructure
+
+windows:
+  - shell:

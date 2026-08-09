@@ -1,0 +1,7 @@
+# One session, one window, rooted in the project. Splits (prefix | and -)
+# inherit this cwd, so a single window is all the config that's needed.
+name: dotfiles
+root: ~/workspace/dotfiles
+
+windows:
+  - shell:
