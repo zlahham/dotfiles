@@ -91,10 +91,6 @@ if [ "$DO_LINKS" = 1 ]; then
   link "$MAC/.rspec"            "$HOME/.rspec"
   link "$MAC/.tmux.conf"        "$HOME/.tmux.conf"
 
-  # tmuxinator: one project file per tmux session. Whole dir is symlinked, so
-  # adding a session is just adding a .yml — no setup.sh change needed.
-  link "$MAC/tmuxinator"        "$HOME/.config/tmuxinator"
-
   # neovim: the whole config dir is symlinked (init.lua + lua/plugins/*).
   link "$MAC/nvim"              "$HOME/.config/nvim"
 
@@ -163,6 +159,9 @@ if [ "$DO_ENV" = 1 ]; then
   banner 6 "Create empty ~/.env and ~/.zshrc.local (for secrets / machine-local config)"
   [ -f "$HOME/.env" ]         || { touch "$HOME/.env";         echo "  created ~/.env"; }
   [ -f "$HOME/.zshrc.local" ] || { touch "$HOME/.zshrc.local"; echo "  created ~/.zshrc.local"; }
+  # tmuxinator projects are machine-local (which repos exist differs per box),
+  # so the dir is created empty rather than symlinked out of the repo.
+  [ -d "$HOME/.config/tmuxinator" ] || { mkdir -p "$HOME/.config/tmuxinator"; echo "  created ~/.config/tmuxinator"; }
   printf "Done.\n"
 fi
 
@@ -192,7 +191,9 @@ if [ "$DO_ASDF" = 1 ]; then
     asdf plugin add nodejs 2>/dev/null || true
     printf "\nasdf plugins ready. Install a runtime, e.g.:\n"
     printf "  asdf install ruby latest && asdf set -u ruby latest\n"
-    printf "  gem install ruby-lsp   # enables the neovim ruby LSP\n"
+    printf "  gem install ruby-lsp    # enables the neovim ruby LSP\n"
+    printf "  gem install tmuxinator  # declarative tmux sessions (tup)\n"
+    printf "  asdf reshim ruby        # after any gem that installs a binary\n"
   else
     printf "asdf not found — ensure 'brew \"asdf\"' is in the Brewfile, then restart your shell.\n"
   fi

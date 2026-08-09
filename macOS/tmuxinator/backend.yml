@@ -1,5 +1,0 @@
-name: backend
-root: ~/workspace/revie/backend
-
-windows:
-  - shell:

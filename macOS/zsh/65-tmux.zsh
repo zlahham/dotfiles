@@ -1,17 +1,23 @@
 # tmux session management via tmuxinator.
 #
 # Sessions are declarative: one project file per session in
-# macOS/tmuxinator/*.yml, symlinked to ~/.config/tmuxinator by setup.sh. A
-# fresh machine gets the same set of sessions the moment setup.sh has run.
+# ~/.config/tmuxinator/<name>.yml. Those files are machine-local and NOT
+# tracked in this repo — which repos exist differs per box. setup.sh only
+# creates the empty dir, same treatment as ~/.env and ~/.zshrc.local.
 #
 #   tmuxinator start <name>   one session, attach
 #   tup                       every session, attach once
 #
-# Needs compinit (40-completion.zsh) for the completion below.
+# tmuxinator comes from `gem install tmuxinator` on the asdf ruby, not brew —
+# the brew formula hard-depends on brew's own ruby. That means it lives in the
+# current asdf ruby only: after `asdf install ruby <new>`, reinstall the gem
+# and `asdf reshim ruby`, or the command vanishes. Hence the guard below.
+#
+# Needs compinit (40-completion.zsh) for the completion at the bottom.
 
 command -v tmuxinator >/dev/null 2>&1 || return
 
-# The gem ships this alias but the brew formula doesn't link it.
+# tmuxinator 3.4 ships only the `tmuxinator` binary, not the `mux` short form.
 alias mux='tmuxinator'
 
 # tup [project...] — bring up every tmuxinator project (or only the named
@@ -31,6 +37,12 @@ tup() {
     projects=("$@")
   else
     projects=(${(f)"$(tmuxinator completions start)"})
+  fi
+
+  # Fresh machine: setup.sh made the dir but there are no projects in it yet.
+  if (( ! ${#projects} )); then
+    print -u2 "tup: no projects in ~/.config/tmuxinator — create one with 'tmuxinator new <name>'"
+    return 1
   fi
 
   for project in $projects; do

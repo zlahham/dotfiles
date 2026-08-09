@@ -21,7 +21,9 @@ brew "pinentry-mac"              # GPG pinentry (GPG_TTY set in .zshrc)
 brew "ripgrep"                   # neovim: fzf-lua live grep (\)
 brew "starship"                  # available prompt (not enabled by default)
 brew "tmux"
-brew "tmuxinator"                # declarative tmux sessions (macOS/tmuxinator/*.yml)
+# tmuxinator (declarative tmux sessions) is deliberately NOT here: the formula
+# hard-depends on brew's ruby, which would duplicate the asdf ruby we already
+# use. Install it as a gem instead — see the asdf step in setup.sh.
 brew "tree"
 brew "tree-sitter-cli"           # neovim: nvim-treesitter (main) builds parsers
 brew "zsh"
