@@ -24,16 +24,19 @@ should_dim_inactive_panes = true
 ligature_rendering_enabled = true
 match_notebook_to_monospace_font_size = true
 font_size = 13.0
-match_ai_font = false
+match_ai_font = true
 notebook_font_size = 14.0
 font_name = "FiraCode Nerd Font Mono"
 ai_font_name = "FiraCode Nerd Font Mono"
-use_thin_strokes = "always"
+use_thin_strokes = "on_high_dpi_displays"
+line_height_ratio = 1.2999999523162842
+font_weight = "normal"
+enforce_minimum_contrast = "always"
 
 [appearance.window]
 zoom_level = 100
 open_windows_at_custom_size = false
-override_opacity = 63
+override_opacity = 73
 override_blur = 17
 left_panel_visibility_across_tabs = true
 
@@ -102,6 +105,45 @@ voice_input_enabled = false
 
 [agents.third_party]
 should_render_cli_agent_toolbar = false
+
+[agents.execution_profiles]
+
+[agents.execution_profiles.default]
+apply_code_diffs = "agent_decides"
+ask_user_question = "always_ask"
+autosync_plans_to_warp_drive = true
+command_allowlist = []
+command_denylist = [
+  'bash(\s.*)?',
+  'fish(\s.*)?',
+  'pwsh(\s.*)?',
+  'sh(\s.*)?',
+  'zsh(\s.*)?',
+  'curl(\s.*)?',
+  'eval(\s.*)?',
+  'exec(\s.*)?',
+  'source(\s.*)?',
+  'wget(\s.*)?',
+  'dig(\s.*)?',
+  'nslookup(\s.*)?',
+  'host(\s.*)?',
+  'ssh(\s.*)?',
+  'scp(\s.*)?',
+  'rsync(\s.*)?',
+  'telnet(\s.*)?',
+  'rm(\s.*)?',
+]
+computer_use = "never"
+directory_allowlist = []
+execute_commands = "always_ask"
+mcp_allowlist = []
+mcp_denylist = []
+mcp_permissions = "agent_decides"
+name = "Default"
+read_files = "agent_decides"
+run_agents = "always_ask"
+web_search_enabled = true
+write_to_pty = "always_ask"
 
 [accessibility]
 accessibility_verbosity = "concise"

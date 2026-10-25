@@ -14,8 +14,15 @@
         "source": "github",
         "repo": "warpdotdev/claude-code-warp"
       }
+    },
+    "datocms-skills": {
+      "source": {
+        "source": "github",
+        "repo": "datocms/agent-skills"
+      }
     }
   },
   "effortLevel": "high",
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "agentPushNotifEnabled": true
 }

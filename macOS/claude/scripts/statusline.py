@@ -3,7 +3,10 @@
 Claude Code status line.
 
 Reads session JSON on stdin, outputs a single-line status with:
-  <model> | [context bar] <pct>% | <elapsed> | <git branch>
+  [<model>] <context bar> <pct>% | <elapsed> | <git branch>
+
+Context usage comes from the payload's `context_window` block (exact). The
+model-id heuristic is a fallback for older Claude Code versions only.
 
 Caching:
   - Git branch cached per cwd for 10s (avoids subprocess on every turn)
@@ -35,11 +38,35 @@ CYAN = "\033[36m"
 BLUE = "\033[34m"
 
 
-def context_limit(model_id: str) -> int:
-    # [1m] suffix marks 1M-context variants
+def fallback_limit(model_id: str) -> int:
+    """Guess the window from the model id.
+
+    Only used on Claude Code versions that don't send a `context_window` block.
+    Unreliable: a 1M session can report an id with no `[1m]` marker, which is
+    how this used to render 189k/1M as a red 94%.
+    """
     if "[1m]" in model_id or "1m" in model_id.lower():
         return 1_000_000
     return 200_000
+
+
+def context_usage(session: dict) -> tuple[int, int]:
+    """(tokens, limit), preferring the authoritative `context_window` block.
+
+    Claude Code sends context_window.{total_input_tokens,context_window_size}.
+    Both are exact — never infer either when they're present.
+    """
+    cw = session.get("context_window") or {}
+
+    tokens = cw.get("total_input_tokens")
+    if not isinstance(tokens, int):
+        tokens = last_turn_tokens(session.get("transcript_path", ""))
+
+    limit = cw.get("context_window_size")
+    if not isinstance(limit, int) or limit <= 0:
+        limit = fallback_limit(session.get("model", {}).get("id", ""))
+
+    return tokens, limit
 
 
 def last_turn_tokens(transcript_path: str) -> int:
@@ -128,10 +155,32 @@ def git_branch(cwd: str) -> str:
     return branch
 
 
-def progress_bar(pct: int, width: int = 10) -> str:
+def git_worktree(cwd: str) -> str:
+    """Basename of the worktree root, e.g. backend-PROD-3326."""
+    try:
+        r = subprocess.run(
+            ["git", "-C", cwd, "--no-optional-locks", "rev-parse", "--show-toplevel"],
+            capture_output=True,
+            text=True,
+            timeout=0.5,
+        )
+        return os.path.basename(r.stdout.strip()) if r.returncode == 0 else ""
+    except Exception:
+        return ""
+
+
+FILLED_CELL = "▓"
+EMPTY_CELL = "░"
+
+
+def progress_bar(pct: int, color: str, width: int = 14) -> str:
+    """Stipple bar: filled cells carry the threshold color, empties stay dim."""
     filled = int(round(pct / 100 * width))
     filled = max(0, min(width, filled))
-    return "█" * filled + "░" * (width - filled)
+    return (
+        f"{color}{FILLED_CELL * filled}{RESET}"
+        f"{DIM}{EMPTY_CELL * (width - filled)}{RESET}"
+    )
 
 
 def context_color(pct: int) -> str:
@@ -167,9 +216,9 @@ def main() -> int:
     cwd = session.get("cwd") or session.get("workspace", {}).get("current_dir", "")
     transcript = session.get("transcript_path", "")
 
-    limit = context_limit(model_id)
-    tokens = last_turn_tokens(transcript)
-    pct = min(100, int(tokens / limit * 100)) if limit else 0
+    tokens, limit = context_usage(session)
+    pct = min(100, round(tokens / limit * 100)) if limit else 0
+    color = context_color(pct)
 
     start = session_start(transcript)
     elapsed = format_elapsed(time.time() - start)
@@ -177,12 +226,13 @@ def main() -> int:
     branch = git_branch(cwd)
 
     parts = [
-        f"{WHITE}{model_name}{RESET}",
-        f"{context_color(pct)}[{progress_bar(pct)}]{RESET} {pct}%",
+        f"{WHITE}[{model_name}]{RESET} {progress_bar(pct, color)} {color}{pct}%{RESET}",
         f"{CYAN}{elapsed}{RESET}",
     ]
     if branch:
-        parts.append(f"{GRAY}{branch}{RESET}")
+        worktree = git_worktree(cwd)
+        label = f"{branch} · {worktree}" if worktree else branch
+        parts.append(f"{GRAY}{label}{RESET}")
 
     sep = f" {DIM}│{RESET} "
     print(sep.join(parts))
