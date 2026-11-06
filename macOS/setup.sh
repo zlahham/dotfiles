@@ -17,8 +17,9 @@
 #   bash macOS/setup.sh --links-only      # just refresh symlinks
 set -uo pipefail
 
-DOTFILES="$HOME/workspace/dotfiles"
-MAC="$DOTFILES/macOS"
+# Locate the repo from this script's own path, so it works wherever it's cloned.
+MAC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+DOTFILES="$(dirname "$MAC")"
 
 # ---- helpers --------------------------------------------------------
 banner() {
@@ -73,8 +74,8 @@ if [ "$(uname)" != "Darwin" ]; then
   echo "This is the macOS setup; you're on $(uname). Aborting." >&2
   exit 1
 fi
-if [ ! -d "$MAC" ]; then
-  echo "Expected repo at $DOTFILES but it's not there. Clone it there first." >&2
+if [ ! -d "$MAC/zsh" ]; then
+  echo "Can't find the macOS dotfiles tree at $MAC (run this script from the repo)." >&2
   exit 1
 fi
 

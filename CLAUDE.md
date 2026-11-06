@@ -22,11 +22,13 @@ platforms, edit both copies.
 
 ## How it works: symlink + setup.sh
 
-`<platform>/setup.sh` symlinks each tracked file from `~/workspace/dotfiles/<platform>/` into `$HOME`
+`<platform>/setup.sh` symlinks each tracked file from `<repo>/<platform>/` into `$HOME`
 (e.g. `ln -s -f .../macOS/.zshrc ~/.zshrc`). Two hard assumptions:
 
-1. **Repo path is `~/workspace/dotfiles`** — hardcoded in every symlink and in `$DOTFILES` in
-   `macOS/.zshrc`. Do not assume the repo location is discoverable; it is fixed.
+1. **The repo can live anywhere (macOS)** — never hardcode its path. `macOS/setup.sh` derives it
+   from its own location (`BASH_SOURCE`); `zsh/00-env.zsh` derives `$DOTFILES` (= `<repo>/macOS`)
+   by resolving its own symlinked path, unless `DOTFILES` is already exported. Anything else that
+   needs the repo should use `$DOTFILES`. (`linux/setup.sh` still hardcodes `~/workspace/dotfiles`.)
 2. **A new dotfile takes effect only after its symlink is added to `setup.sh`.** Adding a file to the
    tree is not enough — add the matching `ln -s -f` line (and re-run `setup.sh`), or it is dead weight.
 

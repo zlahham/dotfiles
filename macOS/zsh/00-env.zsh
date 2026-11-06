@@ -6,12 +6,17 @@
 [ -z "$TERM" ] && export TERM='xterm-256color'
 export LANG=en_GB.UTF-8
 export EDITOR="$(which nvim)"
-export DOTFILES="$HOME/workspace/dotfiles/macOS"
+# The macOS/ tree of the dotfiles repo, wherever it was cloned. Derived from
+# this file's real path: ~/.config/zsh is a symlink to <repo>/macOS/zsh, and :A
+# resolves it, so :h:h is <repo>/macOS. An already-exported DOTFILES wins.
+export DOTFILES="${DOTFILES:-${${(%):-%x}:A:h:h}}"
 DISABLE_AUTO_TITLE=true
 
 export GPG_TTY=$(tty)
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export GOPATH=$HOME/go
+# Respect a GOPATH set earlier (e.g. by a work ~/.zshenv); otherwise use Go's
+# own default. Never clobber it — other tooling may resolve paths through it.
+export GOPATH="${GOPATH:-$HOME/go}"
 export PATH=$PATH:$GOPATH/bin
 # asdf 0.16+ (Go rewrite) works purely via the shims on PATH — there is no
 # asdf.sh to source anymore. Completions (optional):

@@ -4,8 +4,9 @@ Personal configuration for my macOS and Linux machines. Editing a config file
 *is* the change — the only "run" action is applying everything with a setup
 script that symlinks each file into `$HOME`.
 
-> The repo lives at `~/workspace/dotfiles` — that path is hardcoded in the
-> symlinks and setup scripts.
+> Clone the repo anywhere. `macOS/setup.sh` works out its own location, and the
+> zsh config exports it as `$DOTFILES` (pointing at the `macOS/` tree). The
+> Linux setup still assumes `~/workspace/dotfiles`.
 
 ## Layout
 

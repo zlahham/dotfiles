@@ -15,7 +15,7 @@ fi
 
 alias nvimconfig="vim ~/.config/nvim/init.lua"
 alias zshconfig="vim ~/.zshrc"
-alias dotfiles="vim ~/workspace/dotfiles/macOS/"
+alias dotfiles='vim "$DOTFILES"'           # $DOTFILES is set in zsh/00-env.zsh
 
 alias rspec="bundle exec rspec"
 
