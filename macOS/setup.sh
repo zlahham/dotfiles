@@ -105,7 +105,6 @@ if [ "$DO_LINKS" = 1 ]; then
   link "$MAC/warp/settings.toml"                   "$HOME/.warp/settings.toml"
   link "$MAC/warp/user_preferences.yaml"           "$HOME/.warp/user_preferences.yaml"
   link "$MAC/warp/tab_configs/startup_config.toml" "$HOME/.warp/tab_configs/startup_config.toml"
-  link "$MAC/warp/themes/revie_night.yaml"         "$HOME/.warp/themes/revie_night.yaml"
 
   # Claude Code
   link "$MAC/claude/settings.json"         "$HOME/.claude/settings.json"

@@ -34,7 +34,5 @@
   gpgsign = true
 [gpg]
   program = /opt/homebrew/bin/gpg
-[includeIf "gitdir:/Users/zaid/workspace/revie/"]
-  path = /Users/zaid/workspace/revie/.gitconfig
 [init]
   defaultBranch = main
